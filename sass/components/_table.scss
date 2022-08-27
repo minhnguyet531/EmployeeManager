@@ -1,0 +1,63 @@
+.style__layout--table {
+    overflow: auto;
+    height: 45rem;
+
+    &::-webkit-scrollbar {
+        width: 0.8rem;
+        height: 0.8rem;
+        background-color: $color-gray-light;
+        border-radius: 10rem;
+        -webkit-border-radius: 10rem;
+        -moz-border-radius: 10rem;
+        -ms-border-radius: 10rem;
+        -o-border-radius: 10rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $color-gray;
+        border-radius: 10rem;
+        -webkit-border-radius: 10rem;
+        -moz-border-radius: 10rem;
+        -ms-border-radius: 10rem;
+        -o-border-radius: 10rem;
+    }
+}
+// table grid
+.grid__item {
+    font-size: 1.3rem;
+
+    &:not(:first-child) {
+        margin-right: 3.8rem;
+    }
+}
+
+// CSS input checkbox
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + label {
+    display: inline-block;
+    position: relative;
+    margin: 0 1rem 0 1.6rem;
+    padding: 0.6rem;
+    border: 1px solid $color-gray;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: $color-primary-dark;
+    color: $color-tertiary;
+}
+
+// khi checked thì sẽ hiển thị dấu tích
+input[type="checkbox"]:checked + label:after {
+    content: "\2714";
+    font-size: 10px;
+    color: $color-tertiary;
+    @include transform-element(50%, 50%, -50%, -50%);
+}

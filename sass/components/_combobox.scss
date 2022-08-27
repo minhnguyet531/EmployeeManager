@@ -1,0 +1,40 @@
+.combobox {
+    .hidden {
+        display: none;
+    }
+
+    &__sub--items {
+        position: absolute;
+        top: 100%;
+
+        @include element(1.3rem, 100%, auto, $color-black);
+
+        box-shadow: rgba($color-gray-dark, 0.3) 0px 1px 2px 0px,
+            rgba($color-gray-dark, 0.15) 0px 1px 3px 1px;
+        padding: 0.5rem 0;
+
+        .item {
+            line-height: 4rem;
+
+            &__title {
+                margin-left: 3.6rem;
+            }
+
+            &__uncheck {
+                &:hover {
+                    background-color: $color-gray-light;
+                }
+            }
+
+            &__check {
+                color: $color-tertiary;
+                background-color: $color-primary-dark;
+
+                .icon-check {
+                    font-size: 1.6rem;
+                    padding-right: 1rem;
+                }
+            }
+        }
+    }
+}

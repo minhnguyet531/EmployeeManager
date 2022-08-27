@@ -1,0 +1,61 @@
+.btn {
+    text-align: center;
+    cursor: pointer;
+    line-height: 4rem;
+    overflow: hidden;
+
+    @include element(1.3rem, auto, 4rem, $color-tertiary, $color-primary-dark);
+
+    &__effect {
+        &:hover {
+            background-color: $color-primary-light;
+        }
+        &:active {
+            background-color: $color-primary;
+        }
+    }
+
+    &__less3-word {
+        width: 10rem;
+    }
+
+    &__over2-word {
+        padding: 0 2.4rem;
+    }
+
+    &__icon {
+        padding: 0 1.2rem;
+        height: 4rem;
+
+        &--down {
+            height: 100%;
+            padding: 0 1.2rem;
+        }
+    }
+}
+
+// V. Field input - label
+.error {
+    input {
+        border: 1px solid $color-red-light;
+    }
+}
+
+.box-notification {
+    position: absolute;
+    @include element(1.3rem, 16rem, 6.5rem, $color-tertiary, $color-red-light);
+    text-align: center;
+    top: -6.7rem;
+    padding: 1.4rem;
+
+    &::before {
+        border: none;
+        content: "";
+        width: 2rem;
+        height: 1.2rem;
+        clip-path: polygon(0 0, 50% 100%, 100% 0);
+        background-color: $color-red-light;
+
+        @include transform-element(100%, 50%, -50%);
+    }
+}

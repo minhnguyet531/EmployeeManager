@@ -1,0 +1,28 @@
+.grid {
+    display: grid;
+
+    &__layout {
+        grid-template-columns: repeat(22, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+    }
+
+    &__2cols {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.6rem;
+    }
+
+    &__block {
+        grid-column: 1/-1;
+    }
+
+    &__style--table {
+        width: 100vw;
+        grid-template-columns: 5rem 15rem 20rem 10rem 10rem 15rem 25rem 15rem 15rem 15rem 20rem;
+        grid-template-rows: 1fr;
+        padding: 1rem 0;
+
+        &:not(:last-child) {
+            border-bottom: 3px solid $color-gray;
+        }
+    }
+}

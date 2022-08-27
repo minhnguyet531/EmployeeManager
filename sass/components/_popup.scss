@@ -1,0 +1,88 @@
+.popup {
+    position: relative;
+    box-shadow: 0 0 2rem rgba($color-black, 0.2);
+    display: inline-block;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    min-width: 46rem;
+
+    &__title {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin: 2.4rem;
+    }
+
+    &__buttons {
+        height: 6rem;
+        background-color: rgba($color-gray-light, 0.8);
+        gap: 1.6rem;
+        padding-right: 2.4rem;
+    }
+
+    &__content {
+        max-width: 36rem;
+        font-size: 1.4rem;
+    }
+
+    &__delete {
+        background-color: $color-red-light;
+
+        &:hover {
+            background-color: rgba($color-red-light, 0.7);
+        }
+
+        &:active {
+            background-color: rgba($color-red-light, 0.8);
+        }
+    }
+}
+
+.btn__popup {
+    height: 4rem;
+    &--left {
+        color: $color-black;
+        &:hover {
+            background-color: rgba($color-gray, 0.5);
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+        }
+    }
+}
+
+// Icon Popup
+.icon__popup {
+    font-size: 2.2em;
+    margin-right: 2.2rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    padding: 0.6rem;
+    background-color: rgba($color-gray-light, 0.8);
+
+    &--exclamation {
+        color: $color-exclamation;
+    }
+    &--delete {
+        color: $color-red-light;
+    }
+    &--xmark {
+        @include element(1.8rem, 3.4rem, 3.4rem, $color-gray-dark);
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1.2rem;
+
+        &:hover {
+            background-color: rgba($color-gray-light, 0.8);
+        }
+    }
+}

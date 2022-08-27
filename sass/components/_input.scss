@@ -1,0 +1,50 @@
+.input {
+    flex: 1;
+    @include element(1.3rem, auto, 4rem);
+    border: 1px solid $color-gray;
+
+    &::placeholder {
+        font-size: 1.1rem;
+        color: $color-gray;
+    }
+
+    &:focus {
+        border: 1px solid $color-primary-dark;
+    }
+
+    &__box {
+        position: relative;
+        height: 4rem;
+        width: 16rem;
+
+        &--search {
+            width: 24rem;
+        }
+    }
+
+    &__block {
+        display: inline-block;
+        width: 100%;
+    }
+
+    &__icon {
+        display: flex;
+        position: relative;
+    }
+
+    &__left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+
+        &:focus {
+            border: 1px solid $color-gray;
+        }
+    }
+}

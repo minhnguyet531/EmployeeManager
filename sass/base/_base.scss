@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-family: MISA Fonts;
+    font-size: 62.5%;
+}
+
+body {
+    // padding: 3rem;
+    color: $color-gray-dark;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: MISA Fonts;
+    src: url(../assets/font/GoogleSans-Regular.otf);
+}
+
+@font-face {
+    font-family: MISA Fonts Bold;
+    src: url(../assets/font/GoogleSans-Bold.otf);
+}
+
+@font-face {
+    font-family: MISA Fonts Italic;
+    src: url(../assets/font/GoogleSans-Italic.otf);
+}
+
+button,
+input {
+    outline: none;
+    border: none;
+}

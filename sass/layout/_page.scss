@@ -1,0 +1,11 @@
+.page {
+    position: relative;
+    border-left: 3px solid $color-gray;
+    background-color: $color-tertiary;
+    grid-row: 1/-1;
+    grid-column: 4/-1;
+}
+
+.container-page {
+    padding: 0 1.8rem;
+}

@@ -1,0 +1,46 @@
+.page__nav {
+    &--content {
+        position: absolute;
+        bottom: 1.2rem;
+        width: 100%;
+        font-size: 1.3rem;
+        padding: 0 1.8rem;
+    }
+
+    &--title-middle {
+        height: 5.6rem;
+        width: 50rem;
+    }
+
+    &--title-right {
+        color: $color-black;
+        background-color: $color-tertiary;
+    }
+
+    &--numbers {
+        gap: 2rem;
+    }
+
+    &--number {
+        @include element(
+            2rem,
+            3.2rem,
+            3.2rem,
+            $color-black,
+            rgba($color-gray-light, 0.9),
+            50%
+        );
+
+        border: 1px solid $color-gray;
+
+        &:hover {
+            background-color: $color-tertiary;
+            color: $color-black;
+        }
+    }
+
+    &--active {
+        color: $color-tertiary;
+        background-color: $color-primary-dark;
+    }
+}

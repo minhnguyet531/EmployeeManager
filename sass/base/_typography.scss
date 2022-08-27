@@ -1,0 +1,34 @@
+.text-primary {
+    font-size: 2.2rem;
+    color: $color-black;
+    font-family: MISA Fonts Bold;
+}
+.text-13 {
+    font-size: 1.3rem;
+    color: $color-black;
+    font-family: MISA Fonts Bold;
+}
+
+.text-bold {
+    font-family: MISA Fonts Bold !important;
+}
+
+.text-red {
+    color: $color-red-light;
+}
+
+.text-blue {
+    color: $color-information;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-end {
+    text-align: end !important;
+}
+
+.text-start {
+    text-align: start !important;
+}

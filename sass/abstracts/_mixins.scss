@@ -1,0 +1,36 @@
+@mixin flex($justify-content, $align-items) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+@mixin element(
+    $font-size,
+    $width,
+    $height,
+    $text-color: #000000,
+    $bg-color: #ffffff,
+    $boder-radius: 4px
+) {
+    font-size: $font-size;
+    width: $width;
+    height: $height;
+    color: $text-color;
+    background-color: $bg-color;
+    border-radius: $boder-radius;
+    -webkit-border-radius: $boder-radius;
+    -moz-border-radius: $boder-radius;
+    -ms-border-radius: $boder-radius;
+    -o-border-radius: $boder-radius;
+}
+
+@mixin transform-element($top, $left, $X: 0, $Y: 0) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    transform: translate($Y, $X);
+    -webkit-transform: translate($Y, $X);
+    -moz-transform: translate($Y, $X);
+    -ms-transform: translate($Y, $X);
+    -o-transform: translate($Y, $X);
+}

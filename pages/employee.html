@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+            integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <title>Employee</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <div class="container grid grid__layout">
+            <div class="menu">
+                <!-- <div class="menu mini__menu"> -->
+                <div class="flex-horizontal-alignment-start p-16 h-58">
+                    <img
+                        src="../assets/img/toggle.png"
+                        alt=""
+                        class="logo icon__menu"
+                    />
+                    <img
+                        src="../assets/cukcuk-logo.png"
+                        alt=""
+                        class="logo__primary"
+                    />
+                </div>
+                <div
+                    class="flex-horizontal-alignment-start menu__item menu__item--active"
+                >
+                    <i class="fa-solid fa-file-signature icon__menu"></i>
+                    <span>Hồ sơ điện tử</span>
+                </div>
+                <div class="flex-horizontal-alignment-start menu__item">
+                    <i class="fa-solid fa-file-invoice icon__menu"></i>
+                    <span>Hồ sơ giấy</span>
+                </div>
+                <div class="flex-horizontal-alignment-start menu__item">
+                    <i class="fa-solid fa-chart-column icon__menu"></i>
+                    <span>Theo dõi chi</span>
+                </div>
+                <div class="flex-horizontal-alignment-start menu__item">
+                    <i class="fa-solid fa-chart-pie icon__menu"></i>
+                    <span>Theo dõi đóng</span>
+                </div>
+                <div class="flex-horizontal-alignment-start menu__item">
+                    <i class="fa-solid fa-users icon__menu"></i>
+                    <span>Quản lý lao động</span>
+                </div>
+                <div class="flex-horizontal-alignment-start menu__item">
+                    <i class="fa-solid fa-gear icon__menu"></i>
+                    <span>Thiết lập</span>
+                </div>
+                <i
+                    class="fa-solid fa-angle-left icon__menu--footer center-the-element"
+                ></i>
+            </div>
+
+            <div class="page">
+                <header
+                    class="header grid__block flex-horizontal-alignment h-58"
+                >
+                    <div class="flex-horizontal-alignment">
+                        <div class="flex-horizontal-alignment-start">
+                            <div class="bg-gray p-8 border-radius-4">
+                                <h2 class="text-blue">MB</h2>
+                            </div>
+                            <div class="center-the-element">
+                                <div class="flex-horizontal-alignment-start">
+                                    <h2 class="">Chi nhánh MISA miền Bắc</h2>
+
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                    <!-- <i class="fa-solid fa-chevron-up"></i> -->
+                                </div>
+
+                                <div class="combobox__sub--items hidden">
+                                    <div class="btn__icon item item__uncheck">
+                                        <span class="item__title"
+                                            >Minh Minh 1</span
+                                        >
+                                    </div>
+                                    <div class="btn__icon item item__uncheck">
+                                        <span class="item__title"
+                                            >Minh Minh 2</span
+                                        >
+                                    </div>
+                                    <div class="btn__icon item item__check">
+                                        <i
+                                            class="fa-solid fa-check icon-check"
+                                        ></i>
+                                        <span class="item__title"
+                                            >Minh Minh 3
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="center-the-element">
+                        <i class="fa-solid fa-bell icon-bell"></i>
+                        <div class="px-16">
+                            <img
+                                src="../assets/icon/avatar-default.png"
+                                alt=""
+                                class="avatar__header"
+                            />
+                        </div>
+                        <h3 class="pr-16">Minh Minh</h3>
+                        <img src="../assets/icon/option.png" alt="" />
+                    </div>
+                </header>
+                <div class="container-page">
+                    <div class="flex-horizontal-alignment">
+                        <h2 class="text-primary">Danh sách nhân viên</h2>
+                        <button class="btn btn__effect btn__icon mt-12">
+                            <i class="fa-solid fa-user-plus mr-8"></i>
+                            <span>Thêm nhân viên</span>
+                        </button>
+                    </div>
+
+                    <div class="flex-horizontal-alignment my-16">
+                        <div class="flex-horizontal-alignment-start">
+                            <div
+                                class="input__box input__box--search center-the-element"
+                            >
+                                <i
+                                    class="fa-solid fa-magnifying-glass icon-search"
+                                ></i>
+                                <input
+                                    type="text"
+                                    placeholder="Nhập thông tin"
+                                    class="input pl-40"
+                                />
+                            </div>
+
+                            <div class="combobox center-the-element">
+                                <div
+                                    class="input__box center-the-element input__icon"
+                                >
+                                    <input
+                                        type="text"
+                                        name=""
+                                        id=""
+                                        placeholder="Chọn/Nhập thông tin"
+                                        class="input input__left pl-16"
+                                    />
+                                    <i
+                                        class="fa-solid fa-chevron-down btn__icon center-the-element icon-right"
+                                    ></i>
+                                    <!-- <i class="fa-solid fa-chevron-up"></i> -->
+                                </div>
+
+                                <div class="combobox__sub--items hidden">
+                                    <div class="btn__icon item item__uncheck">
+                                        <span class="item__title"
+                                            >Minh Minh 1</span
+                                        >
+                                    </div>
+                                    <div class="btn__icon item item__uncheck">
+                                        <span class="item__title"
+                                            >Minh Minh 2</span
+                                        >
+                                    </div>
+                                    <div class="btn__icon item item__check">
+                                        <i
+                                            class="fa-solid fa-check icon-check"
+                                        ></i>
+                                        <span class="item__title"
+                                            >Minh Minh 3
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="combobox center-the-element">
+                                <div
+                                    class="input__box center-the-element input__icon"
+                                >
+                                    <input
+                                        type="text"
+                                        name=""
+                                        id=""
+                                        placeholder="Chọn/Nhập thông tin"
+                                        class="input input__left pl-16"
+                                    />
+                                    <i
+                                        class="fa-solid fa-chevron-down btn__icon center-the-element icon-right"
+                                    ></i>
+                                    <!-- <i class="fa-solid fa-chevron-up"></i> -->
+                                </div>
+
+                                <div class="combobox__sub--items hidden">
+                                    <div class="btn__icon item item__uncheck">
+                                        <span class="item__title"
+                                            >Minh Minh 1</span
+                                        >
+                                    </div>
+                                    <div class="btn__icon item item__uncheck">
+                                        <span class="item__title"
+                                            >Minh Minh 2</span
+                                        >
+                                    </div>
+                                    <div class="btn__icon item item__check">
+                                        <i
+                                            class="fa-solid fa-check icon-check"
+                                        ></i>
+                                        <span class="item__title"
+                                            >Minh Minh 3
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="border-gray p-8 border-radius-4">
+                            <img src="../assets/icon/refresh.png" alt="" />
+                        </span>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="style__layout--table">
+                        <!-- Header table -->
+                        <div class="grid grid__style--table text-bold">
+                            <h2 class="grid__item grid__item--0"></h2>
+                            <h2 class="grid__item grid__item--1">
+                                Mã nhân viên
+                            </h2>
+                            <h2 class="grid__item grid__item--2">Họ và tên</h2>
+                            <h2 class="grid__item grid__item--3">Giới tính</h2>
+                            <h2 class="grid__item grid__item--4">Ngày sinh</h2>
+                            <h2 class="grid__item grid__item--5">Điện thoại</h2>
+                            <h2 class="grid__item grid__item--6">Email</h2>
+                            <h2 class="grid__item grid__item--7">Chức vụ</h2>
+                            <h2 class="grid__item grid__item--8">Phòng ban</h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                Mức lương cơ bản
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Tình trạng công việc
+                            </h2>
+                        </div>
+
+                        <!-- Body table -->
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check1" />
+                                <label for="check1"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check2" />
+                                <label for="check2"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check3" />
+                                <label for="check3"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check4" />
+                                <label for="check4"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check5" />
+                                <label for="check5"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check6" />
+                                <label for="check6"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check1" />
+                                <label for="check1"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check1" />
+                                <label for="check1"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check1" />
+                                <label for="check1"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check1" />
+                                <label for="check1"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check1" />
+                                <label for="check1"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check1" />
+                                <label for="check1"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check1" />
+                                <label for="check1"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check1" />
+                                <label for="check1"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+                        <div class="grid grid__style--table">
+                            <div class="">
+                                <input type="checkbox" id="check1" />
+                                <label for="check1"></label>
+                            </div>
+                            <h2 class="grid__item grid__item--1">NV00001</h2>
+                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
+                            <h2 class="grid__item grid__item--3">Nam</h2>
+                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
+                            <h2 class="grid__item grid__item--5">034556798</h2>
+                            <h2 class="grid__item grid__item--6">
+                                minhminh@gmail.com
+                            </h2>
+                            <h2 class="grid__item grid__item--7">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--8">
+                                Chưa xác định
+                            </h2>
+                            <h2 class="grid__item grid__item--9 text-end">
+                                10.000.000đ
+                            </h2>
+                            <h2 class="grid__item grid__item--10">
+                                Đang thử việc
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="page__nav--content flex-horizontal-alignment">
+                    <div class="page__nav--title-left">
+                        Hiển thị <b>01-20/123</b> lao động
+                    </div>
+                    <div
+                        class="page__nav--title-middle flex-horizontal-alignment"
+                    >
+                        <i
+                            class="fa-solid fa-angles-left icon-arrow center-the-element"
+                        ></i>
+                        <i
+                            class="fa-solid fa-angle-left icon-arrow center-the-element"
+                        ></i>
+                        <div class="center-the-element page__nav--numbers">
+                            <div
+                                class="page__nav--number center-the-element page__nav--active"
+                            >
+                                1
+                            </div>
+                            <div class="page__nav--number center-the-element">
+                                2
+                            </div>
+                            <div class="page__nav--number center-the-element">
+                                3
+                            </div>
+                            <div class="page__nav--number center-the-element">
+                                4
+                            </div>
+                        </div>
+                        <i
+                            class="fa-solid fa-angle-right icon-arrow center-the-element"
+                        ></i>
+                        <i
+                            class="fa-solid fa-angles-right icon-arrow center-the-element"
+                        ></i>
+                    </div>
+                    <div
+                        class="page__nav--title-right input__box center-the-element input__icon"
+                    >
+                        <select
+                            name=""
+                            id=""
+                            class="input input__left pl-16 text-13"
+                        >
+                            <option value="10" class="">
+                                10 lao động/trang
+                            </option>
+                            <option value="20">20 lao động/trang</option>
+                        </select>
+                    </div>
+                    <!-- <div class="page__nav--title-right">
+                        <b>20</b> lao động/trang
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+.menu {
+    position: relative;
+    background-color: $color-tertiary;
+    grid-column: 1/4;
+    grid-row: 1/-1;
+
+    &__item {
+        cursor: pointer;
+        height: 5.4rem;
+        font-size: 1.4rem;
+        padding: 0 2.2rem;
+        &--active {
+            color: $color-tertiary;
+
+            background-color: $color-primary-dark;
+        }
+
+        &:not(.menu__item--active):hover {
+            background-color: $color-gray-light-1;
+            color: $color-black;
+        }
+    }
+
+    &__footer {
+        position: relative;
+    }
+}
+
+.mini__menu.menu {
+    grid-column: 1/1;
+
+    .menu__item {
+        span {
+            display: none;
+        }
+    }
+}
+
+.mini__menu.menu + .page {
+    grid-column: 2/-1;
+}
