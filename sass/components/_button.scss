@@ -8,9 +8,11 @@
 
     &__effect {
         &:hover {
+            color: $color-tertiary;
             background-color: $color-primary-light;
         }
         &:active {
+            color: $color-tertiary;
             background-color: $color-primary;
         }
     }
@@ -31,6 +33,11 @@
             height: 100%;
             padding: 0 1.2rem;
         }
+    }
+
+    &__gray {
+        background-color: rgba($color-gray, 0.3);
+        color: $color-black;
     }
 }
 

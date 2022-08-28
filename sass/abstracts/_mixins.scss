@@ -34,3 +34,26 @@
     -ms-transform: translate($Y, $X);
     -o-transform: translate($Y, $X);
 }
+
+@mixin srollbar {
+    overflow: auto;
+    &::-webkit-scrollbar {
+        width: 0.8rem;
+        height: 0.8rem;
+        background-color: $color-gray-light;
+        border-radius: 10rem;
+        -webkit-border-radius: 10rem;
+        -moz-border-radius: 10rem;
+        -ms-border-radius: 10rem;
+        -o-border-radius: 10rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $color-gray;
+        border-radius: 10rem;
+        -webkit-border-radius: 10rem;
+        -moz-border-radius: 10rem;
+        -ms-border-radius: 10rem;
+        -o-border-radius: 10rem;
+    }
+}

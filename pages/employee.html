@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="container grid grid__layout">
-            <div class="menu">
+            <div class="menu grid__left">
                 <!-- <div class="menu mini__menu"> -->
                 <div class="flex-horizontal-alignment-start p-16 h-58">
                     <img
@@ -62,10 +62,9 @@
                 ></i>
             </div>
 
-            <div class="page">
-                <header
-                    class="header grid__block flex-horizontal-alignment h-58"
-                >
+            <div class="grid__right">
+                <!-- Header -->
+                <header class="header flex-horizontal-alignment h-58">
                     <div class="flex-horizontal-alignment">
                         <div class="flex-horizontal-alignment-start">
                             <div class="bg-gray p-8 border-radius-4">
@@ -79,26 +78,26 @@
                                     <!-- <i class="fa-solid fa-chevron-up"></i> -->
                                 </div>
 
-                                <div class="combobox__sub--items hidden">
-                                    <div class="btn__icon item item__uncheck">
-                                        <span class="item__title"
-                                            >Minh Minh 1</span
-                                        >
-                                    </div>
-                                    <div class="btn__icon item item__uncheck">
-                                        <span class="item__title"
-                                            >Minh Minh 2</span
-                                        >
-                                    </div>
-                                    <div class="btn__icon item item__check">
-                                        <i
-                                            class="fa-solid fa-check icon-check"
-                                        ></i>
-                                        <span class="item__title"
-                                            >Minh Minh 3
-                                        </span>
-                                    </div>
-                                </div>
+                                <!-- <div class="combobox__sub--items hidden">
+                            <div class="btn__icon item item__uncheck">
+                                <span class="item__title"
+                                    >Minh Minh 1</span
+                                >
+                            </div>
+                            <div class="btn__icon item item__uncheck">
+                                <span class="item__title"
+                                    >Minh Minh 2</span
+                                >
+                            </div>
+                            <div class="btn__icon item item__check">
+                                <i
+                                    class="fa-solid fa-check icon-check"
+                                ></i>
+                                <span class="item__title"
+                                    >Minh Minh 3
+                                </span>
+                            </div>
+                        </div> -->
                             </div>
                         </div>
                     </div>
@@ -116,48 +115,54 @@
                         <img src="../assets/icon/option.png" alt="" />
                     </div>
                 </header>
-                <div class="container-page">
-                    <div class="flex-horizontal-alignment">
-                        <h2 class="text-primary">Danh sách nhân viên</h2>
-                        <button class="btn btn__effect btn__icon mt-12">
-                            <i class="fa-solid fa-user-plus mr-8"></i>
-                            <span>Thêm nhân viên</span>
-                        </button>
-                    </div>
 
-                    <div class="flex-horizontal-alignment my-16">
-                        <div class="flex-horizontal-alignment-start">
-                            <div
-                                class="input__box input__box--search center-the-element"
+                <!-- Nội dung chính của trang -->
+                <div class="page mb-12" id="tableEmployees">
+                    <div class="container-page">
+                        <div class="flex-horizontal-alignment">
+                            <h2 class="text-primary">Danh sách nhân viên</h2>
+                            <button
+                                class="btn btn__effect btn__icon mt-12 toolbar"
+                                CommandType="add"
                             >
-                                <i
-                                    class="fa-solid fa-magnifying-glass icon-search"
-                                ></i>
-                                <input
-                                    type="text"
-                                    placeholder="Nhập thông tin"
-                                    class="input pl-40"
-                                />
-                            </div>
+                                <i class="fa-solid fa-user-plus mr-8"></i>
+                                <span>Thêm nhân viên</span>
+                            </button>
+                        </div>
 
-                            <div class="combobox center-the-element">
+                        <div class="flex-horizontal-alignment my-16">
+                            <div class="flex-horizontal-alignment-start">
                                 <div
-                                    class="input__box center-the-element input__icon"
+                                    class="input__box input__box--search center-the-element"
                                 >
+                                    <i
+                                        class="fa-solid fa-magnifying-glass icon-search"
+                                    ></i>
                                     <input
                                         type="text"
-                                        name=""
-                                        id=""
-                                        placeholder="Chọn/Nhập thông tin"
-                                        class="input input__left pl-16"
+                                        placeholder="Nhập thông tin"
+                                        class="input pl-40"
                                     />
-                                    <i
-                                        class="fa-solid fa-chevron-down btn__icon center-the-element icon-right"
-                                    ></i>
-                                    <!-- <i class="fa-solid fa-chevron-up"></i> -->
                                 </div>
 
-                                <div class="combobox__sub--items hidden">
+                                <div class="combobox center-the-element">
+                                    <div
+                                        class="input__box center-the-element input__icon"
+                                    >
+                                        <input
+                                            type="text"
+                                            name=""
+                                            id=""
+                                            placeholder="Chọn/Nhập thông tin"
+                                            class="input input__left pl-16"
+                                        />
+                                        <i
+                                            class="fa-solid fa-chevron-down btn__icon center-the-element icon-right icon"
+                                        ></i>
+                                        <!-- <i class="fa-solid fa-chevron-up"></i> -->
+                                    </div>
+
+                                    <!-- <div class="combobox__sub--items hidden">
                                     <div class="btn__icon item item__uncheck">
                                         <span class="item__title"
                                             >Minh Minh 1</span
@@ -176,474 +181,519 @@
                                             >Minh Minh 3
                                         </span>
                                     </div>
+                                </div> -->
+                                </div>
+
+                                <div class="combobox center-the-element">
+                                    <div
+                                        class="input__box center-the-element input__icon"
+                                    >
+                                        <input
+                                            type="text"
+                                            name=""
+                                            id=""
+                                            placeholder="Chọn/Nhập thông tin"
+                                            class="input input__left pl-16"
+                                        />
+                                        <i
+                                            class="fa-solid fa-chevron-down btn__icon center-the-element icon-right icon"
+                                        ></i>
+                                        <!-- <i class="fa-solid fa-chevron-up"></i> -->
+                                    </div>
+
+                                    <div class="combobox__sub--items hidden">
+                                        <div
+                                            class="btn__icon item item__uncheck"
+                                        >
+                                            <span class="item__title"
+                                                >Minh Minh 1</span
+                                            >
+                                        </div>
+                                        <div
+                                            class="btn__icon item item__uncheck"
+                                        >
+                                            <span class="item__title"
+                                                >Minh Minh 2</span
+                                            >
+                                        </div>
+                                        <div class="btn__icon item item__check">
+                                            <i
+                                                class="fa-solid fa-check icon-check"
+                                            ></i>
+                                            <span class="item__title"
+                                                >Minh Minh 3
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="combobox center-the-element">
+                            <div class="flex-horizontal-alignment">
                                 <div
-                                    class="input__box center-the-element input__icon"
+                                    class="icon border-gray bg-gray border-radius-4 text-red mr-16 center-the-element"
                                 >
-                                    <input
-                                        type="text"
-                                        name=""
-                                        id=""
-                                        placeholder="Chọn/Nhập thông tin"
-                                        class="input input__left pl-16"
-                                    />
-                                    <i
-                                        class="fa-solid fa-chevron-down btn__icon center-the-element icon-right"
-                                    ></i>
-                                    <!-- <i class="fa-solid fa-chevron-up"></i> -->
+                                    <i class="fa-solid fa-trash-can"></i>
                                 </div>
-
-                                <div class="combobox__sub--items hidden">
-                                    <div class="btn__icon item item__uncheck">
-                                        <span class="item__title"
-                                            >Minh Minh 1</span
-                                        >
-                                    </div>
-                                    <div class="btn__icon item item__uncheck">
-                                        <span class="item__title"
-                                            >Minh Minh 2</span
-                                        >
-                                    </div>
-                                    <div class="btn__icon item item__check">
-                                        <i
-                                            class="fa-solid fa-check icon-check"
-                                        ></i>
-                                        <span class="item__title"
-                                            >Minh Minh 3
-                                        </span>
-                                    </div>
+                                <div
+                                    class="icon border-gray bg-gray border-radius-4 mr-16 center-the-element"
+                                >
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
+                                <div
+                                    class="icon border-gray bg-gray border-radius-4 center-the-element"
+                                >
+                                    <i class="fa-solid fa-arrows-rotate"></i>
                                 </div>
                             </div>
                         </div>
-                        <span class="border-gray p-8 border-radius-4">
-                            <img src="../assets/icon/refresh.png" alt="" />
-                        </span>
+
+                        <!-- Table -->
+                        <div class="style__layout--table">
+                            <!-- Header table -->
+                            <div class="grid grid__style--table text-bold">
+                                <h2 class="grid__item grid__item--0"></h2>
+                                <h2 class="grid__item grid__item--1">
+                                    Mã nhân viên
+                                </h2>
+                                <h2 class="grid__item grid__item--2">
+                                    Họ và tên
+                                </h2>
+                                <h2 class="grid__item grid__item--3">
+                                    Giới tính
+                                </h2>
+                                <h2 class="grid__item grid__item--4">
+                                    Ngày sinh
+                                </h2>
+                                <h2 class="grid__item grid__item--5">
+                                    Điện thoại
+                                </h2>
+                                <h2 class="grid__item grid__item--6">Email</h2>
+                                <h2 class="grid__item grid__item--7">
+                                    Chức vụ
+                                </h2>
+                                <h2 class="grid__item grid__item--8">
+                                    Phòng ban
+                                </h2>
+                                <h2 class="grid__item grid__item--9 text-end">
+                                    Mức lương cơ bản
+                                </h2>
+                                <h2 class="grid__item grid__item--10">
+                                    Tình trạng công việc
+                                </h2>
+                            </div>
+
+                            <!-- Body table -->
+                            <div class="body__table">
+                                <div
+                                    class="grid grid__style--table grid__row flex-horizontal-alignment"
+                                >
+                                    <div class="checkbox__item border-gray">
+                                        <!-- <input type="checkbox" id="check1" />
+                                        <label for="check1"></label> -->
+                                        <div class="display-none box__checked">
+                                            <i
+                                                class="fa-solid fa-check center-the-element checked"
+                                            ></i>
+                                        </div>
+                                    </div>
+                                    <h2 class="grid__item grid__item--1">
+                                        NV00001
+                                    </h2>
+                                    <h2 class="grid__item grid__item--2">
+                                        Minh Minh
+                                    </h2>
+                                    <h2 class="grid__item grid__item--3">
+                                        Nam
+                                    </h2>
+                                    <h2 class="grid__item grid__item--4">
+                                        05/03/2001
+                                    </h2>
+                                    <h2 class="grid__item grid__item--5">
+                                        034556798
+                                    </h2>
+                                    <h2 class="grid__item grid__item--6">
+                                        minhminh@gmail.com
+                                    </h2>
+                                    <h2 class="grid__item grid__item--7">
+                                        Chưa xác định
+                                    </h2>
+                                    <h2 class="grid__item grid__item--8">
+                                        Chưa xác định
+                                    </h2>
+                                    <h2
+                                        class="grid__item grid__item--9 text-end"
+                                    >
+                                        10.000.000đ
+                                    </h2>
+                                    <h2 class="grid__item grid__item--10">
+                                        Đang thử việc
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Table -->
-                    <div class="style__layout--table">
-                        <!-- Header table -->
-                        <div class="grid grid__style--table text-bold">
-                            <h2 class="grid__item grid__item--0"></h2>
-                            <h2 class="grid__item grid__item--1">
-                                Mã nhân viên
-                            </h2>
-                            <h2 class="grid__item grid__item--2">Họ và tên</h2>
-                            <h2 class="grid__item grid__item--3">Giới tính</h2>
-                            <h2 class="grid__item grid__item--4">Ngày sinh</h2>
-                            <h2 class="grid__item grid__item--5">Điện thoại</h2>
-                            <h2 class="grid__item grid__item--6">Email</h2>
-                            <h2 class="grid__item grid__item--7">Chức vụ</h2>
-                            <h2 class="grid__item grid__item--8">Phòng ban</h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                Mức lương cơ bản
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Tình trạng công việc
-                            </h2>
-                        </div>
+                    <!-- Popup Form thông tin nhân viên -->
+                    <div class="bg-popup display-none" id="popupInfoEmployee">
+                        <div class="popup">
+                            <i
+                                class="fa-solid fa-xmark center-the-element icon-xmark toolbar"
+                                CommandType="close"
+                            ></i>
+                            <div class="p-24">
+                                <h1 class="mb-28">Thông tin nhân viên</h1>
+                                <div class="flex-horizontal-alignment">
+                                    <div class="flex-align-self-start mr-16">
+                                        <div class="center-the-element-column">
+                                            <input
+                                                type="file"
+                                                id="avatar"
+                                                name="avatar"
+                                                accept="image/jpg, image/png, image/jpeg, image/gif"
+                                                class="display-none"
+                                            />
+                                            <label for="avatar">
+                                                <img
+                                                    src="../assets/img/default-avatar.jpg"
+                                                    alt=""
+                                                    class="avatar"
+                                                />
+                                            </label>
 
-                        <!-- Body table -->
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check1" />
-                                <label for="check1"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
+                                            <h3 class="text-center w-18">
+                                                (Vui lòng chọn ảnh có định dạng
+                                                .jpg, .jpeg, .png, .gif)
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="grid grid__2cols">
+                                            <div class="grid__block">
+                                                <h2>A. THÔNG TIN CHUNG:</h2>
+                                                <div
+                                                    class="border__bottom--green"
+                                                ></div>
+                                            </div>
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Mã nhân viên
+                                                    <span class="text-red"
+                                                        >*</span
+                                                    >
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <input
+                                                        type="text"
+                                                        name=""
+                                                        id=""
+                                                        placeholder="Nhập mã nhân viên"
+                                                        class="input input__left"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Họ và tên
+                                                    <span class="text-red"
+                                                        >*</span
+                                                    >
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <input
+                                                        type="text"
+                                                        name=""
+                                                        id=""
+                                                        placeholder="Nhập họ tên nhân viên"
+                                                        class="input input__left"
+                                                    />
+                                                </div>
+                                            </div>
 
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check2" />
-                                <label for="check2"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Ngày sinh
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <input
+                                                        type="date"
+                                                        name=""
+                                                        id=""
+                                                        class="input input__left"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Giới tính
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <select
+                                                        name=""
+                                                        id=""
+                                                        class="input input__left"
+                                                    >
+                                                        <option value="0">
+                                                            Nam
+                                                        </option>
+                                                        <option value="1">
+                                                            Nữ
+                                                        </option>
+                                                        <option value="2">
+                                                            Khác
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
 
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check3" />
-                                <label for="check3"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Số CMTND/ Căn cước (<span
+                                                        class="text-red"
+                                                        >*</span
+                                                    >)
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <input
+                                                        type="date"
+                                                        name=""
+                                                        id=""
+                                                        class="input input__left"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Ngày cấp
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <input
+                                                        type="date"
+                                                        name=""
+                                                        id=""
+                                                        class="input input__left"
+                                                    />
+                                                </div>
+                                            </div>
 
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check4" />
-                                <label for="check4"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
+                                            <div class="grid__block">
+                                                <h2 class="text-13 mb-4">
+                                                    Nơi cấp
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <input
+                                                        type="text"
+                                                        name=""
+                                                        id=""
+                                                        placeholder="Nơi cấp..."
+                                                        class="input input__left"
+                                                    />
+                                                </div>
+                                            </div>
 
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check5" />
-                                <label for="check5"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Email (<span
+                                                        class="text-red"
+                                                        >*</span
+                                                    >)
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <input
+                                                        type="text"
+                                                        name=""
+                                                        id=""
+                                                        placeholder="Địa chỉ email..."
+                                                        class="input input__left"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Số điện thoại (<span
+                                                        class="text-red"
+                                                        >*</span
+                                                    >)
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <input
+                                                        type="number"
+                                                        name=""
+                                                        id=""
+                                                        placeholder="Số điện thoại..."
+                                                        class="input input__left"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
 
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check6" />
-                                <label for="check6"></label>
+                                        <div class="grid grid__2cols mt-20">
+                                            <div class="grid__block">
+                                                <h2>B. THÔNG TIN CÔNG VIỆC</h2>
+                                                <div
+                                                    class="border__bottom--green"
+                                                ></div>
+                                            </div>
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Vị trí
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <select
+                                                        name=""
+                                                        id=""
+                                                        class="input input__left"
+                                                    >
+                                                        <option value="0">
+                                                            Giám đốc
+                                                        </option>
+                                                        <option value="1">
+                                                            Nhân viên
+                                                        </option>
+                                                        <option value="2">
+                                                            Trưởng phòng
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Phòng ban
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <select
+                                                        name=""
+                                                        id=""
+                                                        class="input input__left"
+                                                    >
+                                                        <option value="0">
+                                                            Phòng nhân sự
+                                                        </option>
+                                                        <option value="1">
+                                                            Phòng kế toán
+                                                        </option>
+                                                        <option value="2">
+                                                            Phòng CNTT
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Mã số thuế cá nhân
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <input
+                                                        type="text"
+                                                        name=""
+                                                        id=""
+                                                        placeholder="Mã số thuế cá nhân..."
+                                                        class="input input__left"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Mức lương cơ bản
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <input
+                                                        type="text"
+                                                        name=""
+                                                        id=""
+                                                        placeholder="Lương cơ bản..."
+                                                        class="input input__left"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Ngày gia nhập công ty
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <input
+                                                        type="date"
+                                                        name=""
+                                                        id=""
+                                                        class="input input__left"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div class="">
+                                                <h2 class="text-13 mb-4">
+                                                    Tình trạng công việc
+                                                </h2>
+                                                <div
+                                                    class="input__box center-the-element input__icon"
+                                                >
+                                                    <select
+                                                        name=""
+                                                        id=""
+                                                        class="input input__left"
+                                                    >
+                                                        <option value="0">
+                                                            Đang làm việc
+                                                        </option>
+                                                        <option value="1">
+                                                            Đã thôi việc
+                                                        </option>
+                                                        <option value="2">
+                                                            Tạm nghỉ làm
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check1" />
-                                <label for="check1"></label>
+                            <div class="popup__buttons flex-horizontal-end">
+                                <button
+                                    class="btn btn__effect btn__less3-word h-36 center-the-element btn__gray"
+                                >
+                                    Hủy
+                                </button>
+                                <button
+                                    class="btn btn__effect btn__less3-word btn__icon h-36 center-the-element"
+                                >
+                                    <i class="fa-solid fa-floppy-disk mr-8"></i>
+                                    <span>Lưu</span>
+                                </button>
                             </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check1" />
-                                <label for="check1"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check1" />
-                                <label for="check1"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check1" />
-                                <label for="check1"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check1" />
-                                <label for="check1"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check1" />
-                                <label for="check1"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check1" />
-                                <label for="check1"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check1" />
-                                <label for="check1"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
-                        </div>
-                        <div class="grid grid__style--table">
-                            <div class="">
-                                <input type="checkbox" id="check1" />
-                                <label for="check1"></label>
-                            </div>
-                            <h2 class="grid__item grid__item--1">NV00001</h2>
-                            <h2 class="grid__item grid__item--2">Minh Minh</h2>
-                            <h2 class="grid__item grid__item--3">Nam</h2>
-                            <h2 class="grid__item grid__item--4">05/03/2001</h2>
-                            <h2 class="grid__item grid__item--5">034556798</h2>
-                            <h2 class="grid__item grid__item--6">
-                                minhminh@gmail.com
-                            </h2>
-                            <h2 class="grid__item grid__item--7">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--8">
-                                Chưa xác định
-                            </h2>
-                            <h2 class="grid__item grid__item--9 text-end">
-                                10.000.000đ
-                            </h2>
-                            <h2 class="grid__item grid__item--10">
-                                Đang thử việc
-                            </h2>
                         </div>
                     </div>
                 </div>
+
+                <!-- Phân trang -->
                 <div class="page__nav--content flex-horizontal-alignment">
                     <div class="page__nav--title-left">
                         Hiển thị <b>01-20/123</b> lao động
@@ -652,10 +702,10 @@
                         class="page__nav--title-middle flex-horizontal-alignment"
                     >
                         <i
-                            class="fa-solid fa-angles-left icon-arrow center-the-element"
+                            class="fa-solid fa-angles-left icon-arrow icon center-the-element"
                         ></i>
                         <i
-                            class="fa-solid fa-angle-left icon-arrow center-the-element"
+                            class="fa-solid fa-angle-left icon-arrow icon center-the-element"
                         ></i>
                         <div class="center-the-element page__nav--numbers">
                             <div
@@ -674,20 +724,16 @@
                             </div>
                         </div>
                         <i
-                            class="fa-solid fa-angle-right icon-arrow center-the-element"
+                            class="fa-solid fa-angle-right icon-arrow icon center-the-element"
                         ></i>
                         <i
-                            class="fa-solid fa-angles-right icon-arrow center-the-element"
+                            class="fa-solid fa-angles-right icon-arrow icon center-the-element"
                         ></i>
                     </div>
                     <div
-                        class="page__nav--title-right input__box center-the-element input__icon"
+                        class="page__nav--title-right input__box center-the-element"
                     >
-                        <select
-                            name=""
-                            id=""
-                            class="input input__left pl-16 text-13"
-                        >
+                        <select name="" id="" class="input input__left text-13">
                             <option value="10" class="">
                                 10 lao động/trang
                             </option>
@@ -695,10 +741,20 @@
                         </select>
                     </div>
                     <!-- <div class="page__nav--title-right">
-                        <b>20</b> lao động/trang
-                    </div> -->
+                    <b>20</b> lao động/trang
+                </div> -->
                 </div>
             </div>
         </div>
+
+        <!-- Nhúng các thư viện -->
+        <script src="../js/jquery-3.6.1.min.js"></script>
+
+        <!-- Nhúng file js dùng chung -->
+        <!-- <script src="../js/common/"></script> -->
+
+        <!-- Nhúng file js dùng riêng cho trang -->
+        <script src="../js/pages/employee/employee.js"></script>
+        <script src="../js/pages/employee/formEmployeeDetail.js"></script>
     </body>
 </html>

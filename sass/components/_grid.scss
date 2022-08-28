@@ -3,7 +3,16 @@
 
     &__layout {
         grid-template-columns: repeat(22, 1fr);
-        grid-template-rows: repeat(12, 1fr);
+
+        .grid__left {
+            grid-column: 1/4;
+            grid-row: 1/-1;
+        }
+        .grid__right {
+            grid-column: 4/-1;
+            grid-row: 1/-1;
+            border-left: 3px solid $color-gray;
+        }
     }
 
     &__2cols {
@@ -16,9 +25,8 @@
     }
 
     &__style--table {
-        width: 100vw;
+        width: 105vw;
         grid-template-columns: 5rem 15rem 20rem 10rem 10rem 15rem 25rem 15rem 15rem 15rem 20rem;
-        grid-template-rows: 1fr;
         padding: 1rem 0;
 
         &:not(:last-child) {

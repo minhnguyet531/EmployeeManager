@@ -1,26 +1,24 @@
+.icon {
+    @include element(1.6rem, 4rem, 4rem, $color-gray-dark);
+}
+
 .icon-right {
-    color: $color-gray-dark;
-    position: absolute;
     top: 0;
     right: 0;
-    font-size: 1.6rem;
     // border-left: 1px solid $color-gray;
 }
 
 .icon-search {
     position: absolute;
+    font-size: 1.6rem;
     left: 0;
     padding-left: 1.6rem;
-    font-size: 1.6rem;
     padding-right: 0.8rem;
     color: rgba($color-gray, 0.9);
 }
 
 .icon-arrow {
-    font-size: 1.6rem;
     padding: 1rem;
-    width: 4rem;
-    height: 4rem;
     &:hover {
         background-color: $color-tertiary;
         color: $color-black;
@@ -60,7 +58,13 @@
 
 .icon-xmark {
     position: absolute;
-    right: 1rem;
-    font-size: 1.6rem;
-    color: $color-gray;
+    top: 1.6rem;
+    right: 2rem;
+
+    @include element(1.6rem, 2.5rem, 2.5rem, $color-gray);
+
+    &:hover {
+        background-color: $color-gray-light-1;
+        color: $color-tertiary;
+    }
 }

@@ -1,8 +1,6 @@
 .menu {
     position: relative;
     background-color: $color-tertiary;
-    grid-column: 1/4;
-    grid-row: 1/-1;
 
     &__item {
         cursor: pointer;

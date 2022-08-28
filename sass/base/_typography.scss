@@ -1,8 +1,13 @@
+.text-color-black {
+    color: $color-black !important;
+}
+
 .text-primary {
     font-size: 2.2rem;
     color: $color-black;
     font-family: MISA Fonts Bold;
 }
+
 .text-13 {
     font-size: 1.3rem;
     color: $color-black;
@@ -14,7 +19,7 @@
 }
 
 .text-red {
-    color: $color-red-light;
+    color: $color-red-light !important;
 }
 
 .text-blue {
