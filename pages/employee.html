@@ -117,12 +117,17 @@
                 </header>
 
                 <!-- Nội dung chính của trang -->
-                <div class="page mb-12" id="tableEmployees">
+                <div
+                    class="page mb-12"
+                    id="tableEmployees"
+                    Url="https://cukcuk.manhnv.net/api/v1/Employees"
+                >
                     <div class="container-page">
                         <div class="flex-horizontal-alignment">
                             <h2 class="text-primary">Danh sách nhân viên</h2>
                             <button
-                                class="btn btn__effect btn__icon mt-12 toolbar"
+                                class="btn btn__effect btn__icon mt-12"
+                                id="toolbar"
                                 CommandType="add"
                             >
                                 <i class="fa-solid fa-user-plus mr-8"></i>
@@ -230,11 +235,15 @@
                             <div class="flex-horizontal-alignment">
                                 <div
                                     class="icon border-gray bg-gray border-radius-4 text-red mr-16 center-the-element"
+                                    id="toolbar"
+                                    CommandType="delete"
                                 >
                                     <i class="fa-solid fa-trash-can"></i>
                                 </div>
                                 <div
                                     class="icon border-gray bg-gray border-radius-4 mr-16 center-the-element"
+                                    id="toolbar"
+                                    CommandType="copy"
                                 >
                                     <i class="fa-solid fa-copy"></i>
                                 </div>
@@ -247,87 +256,192 @@
                         </div>
 
                         <!-- Table -->
-                        <div class="style__layout--table">
+                        <div class="table style__layout--table">
                             <!-- Header table -->
-                            <div class="grid grid__style--table text-bold">
-                                <h2 class="grid__item grid__item--0"></h2>
-                                <h2 class="grid__item grid__item--1">
+                            <div
+                                class="header-table grid grid__style--table text-bold"
+                            >
+                                <h2
+                                    FieldName=""
+                                    DataType=""
+                                    EnumName=" "
+                                    class="grid__item grid__item--0"
+                                ></h2>
+                                <h2
+                                    FieldName="EmployeeCode"
+                                    DataType=""
+                                    EnumName=" "
+                                    class="grid__item grid__item--1"
+                                >
                                     Mã nhân viên
                                 </h2>
-                                <h2 class="grid__item grid__item--2">
+                                <h2
+                                    FieldName="FullName"
+                                    DataType=""
+                                    EnumName=" "
+                                    class="grid__item grid__item--2"
+                                >
                                     Họ và tên
                                 </h2>
-                                <h2 class="grid__item grid__item--3">
+                                <h2
+                                    FieldName="Gender"
+                                    DataType=""
+                                    EnumName=" "
+                                    class="grid__item grid__item--3"
+                                >
                                     Giới tính
                                 </h2>
-                                <h2 class="grid__item grid__item--4">
+                                <h2
+                                    FieldName="DateOfBirth"
+                                    DataType="Date"
+                                    EnumName=" "
+                                    class="grid__item grid__item--4"
+                                >
                                     Ngày sinh
                                 </h2>
-                                <h2 class="grid__item grid__item--5">
+                                <h2
+                                    FieldName="PhoneNumber"
+                                    DataType=""
+                                    EnumName=" "
+                                    class="grid__item grid__item--5"
+                                >
                                     Điện thoại
                                 </h2>
-                                <h2 class="grid__item grid__item--6">Email</h2>
-                                <h2 class="grid__item grid__item--7">
+                                <h2
+                                    FieldName="Email"
+                                    DataType=""
+                                    EnumName=" "
+                                    class="grid__item grid__item--6"
+                                >
+                                    Email
+                                </h2>
+                                <h2
+                                    FieldName="PositionName"
+                                    DataType=""
+                                    EnumName=" "
+                                    class="grid__item grid__item--7"
+                                >
                                     Chức vụ
                                 </h2>
-                                <h2 class="grid__item grid__item--8">
+                                <h2
+                                    FieldName="DepartmentName"
+                                    DataType=""
+                                    EnumName=" "
+                                    class="grid__item grid__item--8"
+                                >
                                     Phòng ban
                                 </h2>
-                                <h2 class="grid__item grid__item--9 text-end">
+                                <h2
+                                    FieldName="Salary"
+                                    DataType="Number"
+                                    EnumName=" "
+                                    class="grid__item grid__item--9 text-end"
+                                >
                                     Mức lương cơ bản
                                 </h2>
-                                <h2 class="grid__item grid__item--10">
+                                <h2
+                                    FieldName="WorkStatus"
+                                    DataType=""
+                                    EnumName=" "
+                                    class="grid__item grid__item--10"
+                                >
                                     Tình trạng công việc
                                 </h2>
                             </div>
 
                             <!-- Body table -->
                             <div class="body__table">
-                                <div
+                                <!-- <div
                                     class="grid grid__style--table grid__row flex-horizontal-alignment"
                                 >
                                     <div class="checkbox__item border-gray">
-                                        <!-- <input type="checkbox" id="check1" />
-                                        <label for="check1"></label> -->
                                         <div class="display-none box__checked">
                                             <i
                                                 class="fa-solid fa-check center-the-element checked"
                                             ></i>
                                         </div>
                                     </div>
-                                    <h2 class="grid__item grid__item--1">
+                                    <h2
+                                        FieldName=""
+                                        DataType=""
+                                        EnumName=" "
+                                        class="grid__item grid__item--1"
+                                    >
                                         NV00001
                                     </h2>
-                                    <h2 class="grid__item grid__item--2">
+                                    <h2
+                                        FieldName=""
+                                        DataType=""
+                                        EnumName=" "
+                                        class="grid__item grid__item--2"
+                                    >
                                         Minh Minh
                                     </h2>
-                                    <h2 class="grid__item grid__item--3">
+                                    <h2
+                                        FieldName=""
+                                        DataType=""
+                                        EnumName=" "
+                                        class="grid__item grid__item--3"
+                                    >
                                         Nam
                                     </h2>
-                                    <h2 class="grid__item grid__item--4">
+                                    <h2
+                                        FieldName=""
+                                        DataType=""
+                                        EnumName=" "
+                                        class="grid__item grid__item--4"
+                                    >
                                         05/03/2001
                                     </h2>
-                                    <h2 class="grid__item grid__item--5">
+                                    <h2
+                                        FieldName=""
+                                        DataType=""
+                                        EnumName=" "
+                                        class="grid__item grid__item--5"
+                                    >
                                         034556798
                                     </h2>
-                                    <h2 class="grid__item grid__item--6">
+                                    <h2
+                                        FieldName=""
+                                        DataType=""
+                                        EnumName=" "
+                                        class="grid__item grid__item--6"
+                                    >
                                         minhminh@gmail.com
                                     </h2>
-                                    <h2 class="grid__item grid__item--7">
-                                        Chưa xác định
-                                    </h2>
-                                    <h2 class="grid__item grid__item--8">
+                                    <h2
+                                        FieldName=""
+                                        DataType=""
+                                        EnumName=" "
+                                        class="grid__item grid__item--7"
+                                    >
                                         Chưa xác định
                                     </h2>
                                     <h2
+                                        FieldName=""
+                                        DataType=""
+                                        EnumName=" "
+                                        class="grid__item grid__item--8"
+                                    >
+                                        Chưa xác định
+                                    </h2>
+                                    <h2
+                                        FieldName=""
+                                        DataType=""
+                                        EnumName=" "
                                         class="grid__item grid__item--9 text-end"
                                     >
                                         10.000.000đ
                                     </h2>
-                                    <h2 class="grid__item grid__item--10">
+                                    <h2
+                                        FieldName=""
+                                        DataType=""
+                                        EnumName=" "
+                                        class="grid__item grid__item--10"
+                                    >
                                         Đang thử việc
                                     </h2>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -336,7 +450,8 @@
                     <div class="bg-popup display-none" id="popupInfoEmployee">
                         <div class="popup">
                             <i
-                                class="fa-solid fa-xmark center-the-element icon-xmark toolbar"
+                                class="fa-solid fa-xmark center-the-element icon-xmark"
+                                id="toolbar"
                                 CommandType="close"
                             ></i>
                             <div class="p-24">
@@ -679,6 +794,8 @@
                             <div class="popup__buttons flex-horizontal-end">
                                 <button
                                     class="btn btn__effect btn__less3-word h-36 center-the-element btn__gray"
+                                    id="toolbar"
+                                    CommandType="cancel"
                                 >
                                     Hủy
                                 </button>
@@ -686,7 +803,12 @@
                                     class="btn btn__effect btn__less3-word btn__icon h-36 center-the-element"
                                 >
                                     <i class="fa-solid fa-floppy-disk mr-8"></i>
-                                    <span>Lưu</span>
+                                    <span
+                                        class=""
+                                        id="toolbar"
+                                        CommandType="save"
+                                        >Lưu</span
+                                    >
                                 </button>
                             </div>
                         </div>
@@ -751,7 +873,9 @@
         <script src="../js/jquery-3.6.1.min.js"></script>
 
         <!-- Nhúng file js dùng chung -->
-        <!-- <script src="../js/common/"></script> -->
+        <script src="../js/common/common.js"></script>
+        <script src="../js/common/Enumeration.js"></script>
+        <script src="../js/common/Resource.js"></script>
 
         <!-- Nhúng file js dùng riêng cho trang -->
         <script src="../js/pages/employee/employee.js"></script>
