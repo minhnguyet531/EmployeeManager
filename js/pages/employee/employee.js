@@ -10,6 +10,9 @@ class Employees {
 
         // Lấy dữ liệu
         this.getData();
+
+        // Lấy form Employee Detail
+        this.initFormEmployeeDetail();
     }
 
     initEvents() {
@@ -42,7 +45,10 @@ class Employees {
 
     cancel() {}
 
-    save() {}
+    save() {
+        let me = this;
+        me.formEmployeeDetail.validateForm();
+    }
 
     copy() {}
 
@@ -60,6 +66,15 @@ class Employees {
                 .children(".box__checked")
                 .toggleClass("display-none");
         });
+    }
+
+    /**
+     * Init formEmployeeDetail
+     */
+
+    initFormEmployeeDetail() {
+        let me = this;
+        me.formEmployeeDetail = new FormEmployeeDetail("popupInfoEmployee");
     }
 
     /**
@@ -94,20 +109,15 @@ class Employees {
             columns.push(column);
         });
 
-        console.log(columns);
-
         return columns;
     }
 
     /**
      * Hàm dùng để lấy dữ liệu cho trang
-     * NTXUAN (01.07.2022)
      */
     getData() {
         let me = this,
             url = me.gridTable.attr("Url");
-
-        console.log(url);
 
         CommonFn.Ajax(url, Resource.Method.Get, {}, function (response) {
             if (response) {
@@ -190,8 +200,6 @@ class Employees {
                         value = me.getValueCell(item, fieldName, dataType),
                         className = me.getClassFormat(dataType);
 
-                    console.log(value);
-
                     if (fieldName !== "") {
                         if (fieldName === "Gender") {
                             if (value === 0) value = "Khác";
@@ -210,8 +218,6 @@ class Employees {
                         row.append(h2);
                     }
                 });
-
-                // row.data("Xuan", item);
 
                 bodyTable.append(row);
             });
@@ -233,8 +239,6 @@ class Employees {
         switch (dataType) {
             case Resource.DataTypeColumn.Number:
                 value = CommonFn.formatMoney(value);
-                console.log(value);
-
                 break;
             case "Date":
                 break;
@@ -247,7 +251,6 @@ class Employees {
 
     /**
      * Hàm dùng để lấy class format cho từng kiểu dữ liệu
-     * CreatedBy: NTXUAN 06.05.2021
      */
     getClassFormat(dataType) {
         let className = "grid__item";

@@ -266,40 +266,6 @@ input {
     background-color: rgba(187, 187, 187, 0.3);
     color: #000000; }
 
-.error input {
-  border: 1px solid #ff4747; }
-
-.box-notification {
-  position: absolute;
-  font-size: 1.3rem;
-  width: 16rem;
-  height: 6.5rem;
-  color: #ffffff;
-  background-color: #ff4747;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  text-align: center;
-  top: -6.7rem;
-  padding: 1.4rem; }
-  .box-notification::before {
-    border: none;
-    content: "";
-    width: 2rem;
-    height: 1.2rem;
-    clip-path: polygon(0 0, 50% 100%, 100% 0);
-    background-color: #ff4747;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(0, -50%);
-    -webkit-transform: translate(0, -50%);
-    -moz-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    -o-transform: translate(0, -50%); }
-
 .style__layout--table {
   height: 45rem;
   overflow: auto; }
@@ -516,6 +482,8 @@ input {
     color: #bbbbbb; }
   .input:focus {
     border: 1px solid #019160; }
+    .input:focus + .box-notification {
+      display: none; }
   .input__box {
     position: relative;
     height: 4rem;
@@ -621,6 +589,40 @@ input {
       color: #01b075; }
     .toast .icon__toast--info {
       color: #639cdf; }
+
+.error input {
+  border: 1px solid #ff4747; }
+
+.box-notification {
+  position: absolute;
+  font-size: 1.3rem;
+  width: 16rem;
+  height: auto;
+  color: #ffffff;
+  background-color: #ff4747;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  text-align: center;
+  top: 90%;
+  padding: 0.6rem; }
+  .box-notification::before {
+    border: none;
+    content: "";
+    width: 2rem;
+    height: 1.2rem;
+    clip-path: polygon(100% 100%, 50% 0, 0 100%);
+    background-color: #ff4747;
+    position: absolute;
+    top: -0.2rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%); }
 
 .icon {
   font-size: 1.6rem;

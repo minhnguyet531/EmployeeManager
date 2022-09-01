@@ -1,1 +1,2 @@
 1. Lỗi hiển thị icon down trong input
+2. Lỗi khi các input trong form k nhập. (nếu k nhập thì nó chỉ hiển thị duy nhất 1 box thông báo ở vị trí input cuối cùng)

@@ -1,0 +1,25 @@
+// V. Field input - label
+.error {
+    input {
+        border: 1px solid $color-red-light;
+    }
+}
+
+.box-notification {
+    position: absolute;
+    @include element(1.3rem, 16rem, auto, $color-tertiary, $color-red-light);
+    text-align: center;
+    top: 90%;
+    padding: 0.6rem;
+
+    &::before {
+        border: none;
+        content: "";
+        width: 2rem;
+        height: 1.2rem;
+        clip-path: polygon(100% 100%, 50% 0, 0 100%);
+        background-color: $color-red-light;
+
+        @include transform-element(-0.2rem, 50%, -50%, -50%);
+    }
+}

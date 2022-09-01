@@ -447,7 +447,11 @@
                     </div>
 
                     <!-- Popup Form thông tin nhân viên -->
-                    <div class="bg-popup display-none" id="popupInfoEmployee">
+                    <form
+                        action="#"
+                        id="popupInfoEmployee"
+                        class="bg-popup display-none"
+                    >
                         <div class="popup">
                             <i
                                 class="fa-solid fa-xmark center-the-element icon-xmark"
@@ -504,8 +508,21 @@
                                                         id=""
                                                         placeholder="Nhập mã nhân viên"
                                                         class="input input__left"
+                                                        Require="true"
                                                     />
                                                 </div>
+
+                                                <!-- <div class="input__box center-the-element error mt-80">
+                                                    <input
+                                                        type="text"
+                                                        placeholder="Nhập thông tin"
+                                                        class="input my-4 px-16"
+                                                    />
+                                                    <i class="fa-regular fa-circle-xmark icon-xmark""></i>
+                                                    <div class="error box-notification">
+                                                       Không bỏ trống phần này
+                                                    </div>
+                                                </div> -->
                                             </div>
                                             <div class="">
                                                 <h2 class="text-13 mb-4">
@@ -523,6 +540,7 @@
                                                         id=""
                                                         placeholder="Nhập họ tên nhân viên"
                                                         class="input input__left"
+                                                        Require="true"
                                                     />
                                                 </div>
                                             </div>
@@ -582,6 +600,7 @@
                                                         name=""
                                                         id=""
                                                         class="input input__left"
+                                                        Require="true"
                                                     />
                                                 </div>
                                             </div>
@@ -629,11 +648,12 @@
                                                     class="input__box center-the-element input__icon"
                                                 >
                                                     <input
-                                                        type="text"
+                                                        type="email"
                                                         name=""
                                                         id=""
                                                         placeholder="Địa chỉ email..."
                                                         class="input input__left"
+                                                        Require="true"
                                                     />
                                                 </div>
                                             </div>
@@ -653,6 +673,7 @@
                                                         id=""
                                                         placeholder="Số điện thoại..."
                                                         class="input input__left"
+                                                        Require="true"
                                                     />
                                                 </div>
                                             </div>
@@ -801,18 +822,15 @@
                                 </button>
                                 <button
                                     class="btn btn__effect btn__less3-word btn__icon h-36 center-the-element"
+                                    id="toolbar"
+                                    CommandType="save"
                                 >
                                     <i class="fa-solid fa-floppy-disk mr-8"></i>
-                                    <span
-                                        class=""
-                                        id="toolbar"
-                                        CommandType="save"
-                                        >Lưu</span
-                                    >
+                                    <span class="">Lưu</span>
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
 
                 <!-- Phân trang -->
@@ -878,7 +896,7 @@
         <script src="../js/common/Resource.js"></script>
 
         <!-- Nhúng file js dùng riêng cho trang -->
-        <script src="../js/pages/employee/employee.js"></script>
         <script src="../js/pages/employee/formEmployeeDetail.js"></script>
+        <script src="../js/pages/employee/employee.js"></script>
     </body>
 </html>

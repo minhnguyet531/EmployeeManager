@@ -40,29 +40,3 @@
         color: $color-black;
     }
 }
-
-// V. Field input - label
-.error {
-    input {
-        border: 1px solid $color-red-light;
-    }
-}
-
-.box-notification {
-    position: absolute;
-    @include element(1.3rem, 16rem, 6.5rem, $color-tertiary, $color-red-light);
-    text-align: center;
-    top: -6.7rem;
-    padding: 1.4rem;
-
-    &::before {
-        border: none;
-        content: "";
-        width: 2rem;
-        height: 1.2rem;
-        clip-path: polygon(0 0, 50% 100%, 100% 0);
-        background-color: $color-red-light;
-
-        @include transform-element(100%, 50%, -50%);
-    }
-}
