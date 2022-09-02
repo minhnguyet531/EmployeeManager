@@ -1,2 +1,9 @@
-1. Lỗi hiển thị icon down trong input
-2. Lỗi khi các input trong form k nhập. (nếu k nhập thì nó chỉ hiển thị duy nhất 1 box thông báo ở vị trí input cuối cùng)
+1. Tạo sự kiện cho combobox__sub và thanh menu
+2. Khi nhập thiếu lần 1 và sau khi nhập đủ lần 2 thì box thông báo vẫn hiện -.- (kiểu chưa update đc value khi mk ms sửa ý)
+3. Sau khi nhập đúng và đủ thông tin trong form thì sẽ reset lại các thẻ input trên form
+4. Thêm button sửa và khi chọn sửa thì thông tin sẽ đc hiển thị tương ứng trên các thẻ input của form
+5. Khi nhập xong các thẻ input thì có thẻ sử dụng các nút để di chuyển focus của chuột vd như cứ enter thì nó sẽ nhảy sang ô input sau đó (tabindex). Đồng thời khi mở form thì sẽ focus vào ngay ô input đầu tiên
+6. Chức năng xóa (1 trường hoặc nhiều trường)
+7. Chức năng loading dữ liệu
+8. Cho phép form detail di chuyển
+9. Tự động sinh dấu phẩy ngăn cách cho các ô số tiền
