@@ -447,7 +447,11 @@
                     </div>
 
                     <!-- Popup Form thông tin nhân viên -->
-                    <div id="popupInfoEmployee" class="bg-popup display-none">
+                    <div
+                        id="popupInfoEmployee"
+                        class="bg-popup display-none"
+                        Url="https://cukcuk.manhnv.net/api/v1/Employees"
+                    >
                         <div class="popup">
                             <i
                                 class="fa-solid fa-xmark center-the-element icon-xmark"
@@ -505,6 +509,7 @@
                                                         placeholder="Nhập mã nhân viên"
                                                         class="input input__left"
                                                         Require="true"
+                                                        SetField="EmployeeCode"
                                                     />
                                                 </div>
 
@@ -537,6 +542,7 @@
                                                         placeholder="Nhập họ tên nhân viên"
                                                         class="input input__left"
                                                         Require="true"
+                                                        SetField="FullName"
                                                     />
                                                 </div>
                                             </div>
@@ -553,6 +559,7 @@
                                                         name=""
                                                         id=""
                                                         class="input input__left"
+                                                        SetField="DateOfBirth"
                                                     />
                                                 </div>
                                             </div>
@@ -567,6 +574,7 @@
                                                         name=""
                                                         id=""
                                                         class="input input__left"
+                                                        SetField="Gender"
                                                     >
                                                         <option value="0">
                                                             Nam
@@ -597,6 +605,8 @@
                                                         id="CitizenIdentityCard"
                                                         class="input input__left"
                                                         Require="true"
+                                                        SetField="IdentityNumber"
+                                                        DataType="Number"
                                                     />
                                                 </div>
                                             </div>
@@ -612,6 +622,7 @@
                                                         name=""
                                                         id=""
                                                         class="input input__left"
+                                                        SetField="IdentityDate"
                                                     />
                                                 </div>
                                             </div>
@@ -629,6 +640,7 @@
                                                         id=""
                                                         placeholder="Nơi cấp..."
                                                         class="input input__left"
+                                                        SetField="IdentityPlace"
                                                     />
                                                 </div>
                                             </div>
@@ -650,6 +662,7 @@
                                                         placeholder="Địa chỉ email..."
                                                         class="input input__left"
                                                         Require="true"
+                                                        SetField="Email"
                                                     />
                                                 </div>
                                             </div>
@@ -670,6 +683,9 @@
                                                         placeholder="Số điện thoại..."
                                                         class="input input__left"
                                                         Require="true"
+                                                        Validate="phoneNumber"
+                                                        SetField="PhoneNumber"
+                                                        DataType="Number"
                                                     />
                                                 </div>
                                             </div>
@@ -693,6 +709,7 @@
                                                         name=""
                                                         id=""
                                                         class="input input__left"
+                                                        SetField="PositionName"
                                                     >
                                                         <option value="0">
                                                             Giám đốc
@@ -717,6 +734,7 @@
                                                         name=""
                                                         id=""
                                                         class="input input__left"
+                                                        SetField="DepartmentName"
                                                     >
                                                         <option value="0">
                                                             Phòng nhân sự
@@ -744,6 +762,7 @@
                                                         id=""
                                                         placeholder="Mã số thuế cá nhân..."
                                                         class="input input__left"
+                                                        SetField="PersonalTaxCode"
                                                     />
                                                 </div>
                                             </div>
@@ -761,6 +780,7 @@
                                                         id=""
                                                         placeholder="Lương cơ bản..."
                                                         class="input input__left"
+                                                        SetField="Salary"
                                                     />
                                                 </div>
                                             </div>
@@ -776,6 +796,7 @@
                                                         name=""
                                                         id=""
                                                         class="input input__left"
+                                                        SetField="JoinDate"
                                                     />
                                                 </div>
                                             </div>
@@ -791,6 +812,7 @@
                                                         name=""
                                                         id=""
                                                         class="input input__left"
+                                                        SetField="WorkStatus"
                                                     >
                                                         <option value="0">
                                                             Đang làm việc
@@ -826,6 +848,36 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Thông báo khi save dữ liệu thành công -->
+                    <div
+                        class="toast toast-successful flex-horizontal-alignment mt-12 display-none"
+                    >
+                        <div class="flex-horizontal-alignment">
+                            <i
+                                class="fa-solid fa-circle-check icon__toast icon__toast--check center-the-element pr-8"
+                            ></i>
+                            <h2 class="text-13">Lưu dữ liệu thành công</h2>
+                        </div>
+                        <i
+                            class="fa-solid fa-xmark icon__toast icon__toast--check center-the-element"
+                        ></i>
+                    </div>
+
+                    <!-- Thông báo khi save dữ liệu thất bại -->
+                    <div
+                        class="toast toast-error flex-horizontal-alignment mt-12 display-none"
+                    >
+                        <div class="flex-horizontal-alignment">
+                            <i
+                                class="fa-solid fa-triangle-exclamation icon__toast icon__toast--error center-the-element"
+                            ></i>
+                            <h2 class="text-13">Nội dung đi kèm tiêu đề</h2>
+                        </div>
+                        <i
+                            class="fa-solid fa-xmark icon__toast icon__toast--error center-the-element"
+                        ></i>
                     </div>
                 </div>
 

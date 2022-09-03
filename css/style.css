@@ -35,7 +35,7 @@ input {
   height: 100vh; }
 
 .display-none {
-  display: none; }
+  display: none !important; }
 
 .mb-4 {
   margin-bottom: 0.4rem; }
@@ -265,6 +265,9 @@ input {
   .btn__gray {
     background-color: rgba(187, 187, 187, 0.3);
     color: #000000; }
+
+.table {
+  position: relative; }
 
 .style__layout--table {
   height: 45rem;
@@ -565,6 +568,9 @@ input {
         padding-right: 1rem; }
 
 .toast {
+  z-index: 9999;
+  position: absolute;
+  right: 2rem;
   font-size: 1.3rem;
   width: 28rem;
   height: 4.8rem;

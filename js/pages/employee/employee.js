@@ -34,11 +34,27 @@ class Employees {
     }
 
     add() {
-        $("#popupInfoEmployee").toggleClass("display-none");
+        let me = this,
+            param = {
+                parent: me,
+                formMode: Enumeration.FormMode.Add,
+            };
+        me.formEmployeeDetail.openForm(param);
+    }
+
+    edit() {
+        let me = this,
+            param = {
+                parent: me,
+                formMode: Enumeration.FormMode.Edit,
+            };
+        me.formEmployeeDetail.openForm(param);
     }
 
     close() {
+        let me = this;
         $("#popupInfoEmployee").toggleClass("display-none");
+        me.formEmployeeDetail.resetForm();
     }
 
     delete() {}
@@ -47,7 +63,8 @@ class Employees {
 
     save() {
         let me = this;
-        me.formEmployeeDetail.validateForm();
+
+        me.formEmployeeDetail.save();
     }
 
     copy() {}

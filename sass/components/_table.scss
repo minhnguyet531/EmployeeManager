@@ -1,3 +1,6 @@
+.table {
+    position: relative;
+}
 .style__layout--table {
     height: 45rem;
     @include srollbar;
