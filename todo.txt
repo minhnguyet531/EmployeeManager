@@ -1,18 +1,61 @@
-1. Tạo sự kiện cho combobox__sub và thanh menu
+//🍟 =>>>>>>>
+1. Định dạng số vd 1.000.000
+2. Tạo sự kiện cho combobox__sub và thanh menu
+3. Khi nhập xong các thẻ input thì có thẻ sử dụng các nút để di chuyển focus của chuột vd như cứ enter thì nó sẽ nhảy sang ô input sau đó (tabindex). Đồng thời khi mở form thì sẽ focus vào ngay ô input đầu tiên
+4. Sài đc phím enter
 
-//Form
-2. Khi nhập thiếu lần 1 và sau khi nhập đủ lần 2 thì box thông báo vẫn hiện -.- (kiểu chưa update đc value khi mk ms sửa ý) => tạm thời fix = set thời gian ẩn
-3. Sau khi nhập đúng và đủ thông tin trong form thì sẽ reset lại các thẻ input trên form
-4. Thêm button sửa và khi chọn sửa thì thông tin sẽ đc hiển thị tương ứng trên các thẻ input của form
-5. Khi nhập xong các thẻ input thì có thẻ sử dụng các nút để di chuyển focus của chuột vd như cứ enter thì nó sẽ nhảy sang ô input sau đó (tabindex). Đồng thời khi mở form thì sẽ focus vào ngay ô input đầu tiên
-6. Chức năng xóa (1 trường hoặc nhiều trường)
-7. Chức năng loading dữ liệu
-8. Cho phép form detail di chuyển
-9. Tự động sinh dấu phẩy ngăn cách cho các ô số tiền
 
-// save data
+// 🍟 =>>>>>> Thêm + nhân bản
+1. Mặc địch focus vào ô nhập liệu mã nhân viên. Mã nhân viên tự động có và tự tăng theo tiêu chí: "NV" + mã số nhân viên lớn nhất trong hệ thống + 1
+2. Nhân bản: bản chất nó là thêm mới nhân viên nhưng dữ liệu sẽ ddc tự động điện theo bảng ghi mà mk muốn nó nhân bản lên (dĩ nhiên thg mã nv sẽ khác r và muốn thay đổi j thì vẫn thay đổi đc tốt) => cảm giác như đầu nó là thêm mới còn đuôi nó là sửa haha 🤣😂😁
+
+//🍟 =>>>>>> sửa
+1. Mặc định focus vào ô nhập liệu mã nhân viên
+2. Data đc đổ ra tương ứng ở các input
+
+// 🍟 =>>>>>> xóa
+1. Chọn 1 bản ghi ở bảng dữ liệu màn hình danh sách chọn xóa, hiển thị cảng báo: "Bạn có chắc chắn muốn xóa nhân viên [Mã nhân viên] không?"
+(có => cho phép xóa, không => hủy xóa và ẩn popup cảnh báo)
+2. Tự mở rộng thêm chức năng xóa nhiều
+
+//🍟 =>>>>>> phân trang
+
+
+//🍟 =>>>>>>> Tìm kiếm thông tin nhân viên (nâng cao)
++ Phòng ban
++ Vị trí / chức vụ từ combobox
++ Nhập họ tên hoặc mã nhân viên trong input tìm kiếm
+
+
+
+//🍟 =>>>>>>> Form:
+1. Mã nhân viên k đc trùng vs mã nhân viên khác. Email đúng định dạng, ngày tháng k đc phép lớn hơn ngày hiện tại (định dạng ngày/ tháng/ năm)
+
 1. Xóa khoảng trắng giữa 2 đầu trc khi lưu database
 
 2. Khi lưu hiển thị các thông báo
     - thành công => OK
     - Thất bại
+
+
+2. Khi nhập thiếu lần 1 và sau khi nhập đủ lần 2 thì box thông báo vẫn hiện -.- (kiểu chưa update đc value khi mk ms sửa ý) => tạm thời fix = set thời gian ẩn
+3. Sau khi nhập đúng và đủ thông tin trong form thì sẽ reset lại các thẻ input trên form
+4. Thêm button sửa và khi chọn sửa thì thông tin sẽ đc hiển thị tương ứng trên các thẻ input của form
+
+6. Chức năng xóa (1 trường hoặc nhiều trường)
+7. Chức năng loading dữ liệu
+8. Cho phép form detail di chuyển
+9. Tự động sinh dấu phẩy ngăn cách cho các ô số tiền
+
+
+//🍟 =>>>>>>>  API
+1. Lm thêm API của phòng ban, vị trí (tương tự như employee)
+
+
+
+
+
+//🥵😱😱🥵😱😱😰 =>>>>>>> Bug hiện tại: save data
+1. K tự reload lại khi submit xong form -.- (kể cả xóa hay thêm mới, toàn phải tự f5 lại ms đc)
+
+

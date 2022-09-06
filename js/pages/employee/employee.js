@@ -17,6 +17,8 @@ class Employees {
 
     initEvents() {
         this.initEventToolbar();
+
+        // sự kiện thao tác với table
         this.initEventsTable();
     }
 
@@ -25,8 +27,7 @@ class Employees {
 
         me.gridTable.on("click", "#toolbar", function () {
             let commandType = $(this).attr("CommandType");
-            console.log(commandType);
-
+            // alert(commandType);
             if (me[commandType] && typeof me[commandType] === "function") {
                 me[commandType]();
             }
@@ -57,23 +58,55 @@ class Employees {
         me.formEmployeeDetail.resetForm();
     }
 
-    delete() {}
+    // xóa bảng ghi thông tin nhân viên được chọn
+    delete() {
+        let me = this,
+            employeesIDs = me.employeesIDs, // Lấy ra các employeeId đã chọn
+            url = me.gridTable.attr("Url");
+        // lần lượt xóa các employee đã chọn
+        employeesIDs.filter(function (item) {
+            CommonFn.Ajax(
+                `${url}/${item}`,
+                Resource.Method.Delete,
+                {},
+                function (response) {
+                    if (response) {
+                        console.log(response);
+                        //load lại dữ liệu
+                        me.loadData(response);
+                        alert("Xóa thành công");
+                    } else {
+                        console.log("Có lỗi khi xóa dữ liệu từ server");
+                    }
+                }
+            );
+        });
+
+        alert(`Đã xóa ${employeesIDs.length} nhân viên`);
+    }
 
     cancel() {}
 
     save() {
         let me = this;
 
+        // Gọi hàm lưu dữ liệu từ form thông tin nhân viên
         me.formEmployeeDetail.save();
+        me.getData(data);
+        alert("hihi");
     }
 
     copy() {}
 
     initEventsTable() {
+        let me = this;
+        me.employeesIDs = [];
         /**
          * Khỏi tạo sự kiện khi click vào mỗi dòng, đồng thời checkbox cx đc tích tương ứng
          *  */
-        this.gridTable.on("click", ".grid__row", function () {
+        me.gridTable.on("click", ".grid__row", function () {
+            //lấy ra employeeId của dòng đang click
+            let id = $(this).children(".checkbox__item").attr("id");
             // toggleClass (nếu có class đó r thì xóa, k có class đó thì add vào)
             $(this).toggleClass("grid__row--active");
 
@@ -82,6 +115,18 @@ class Employees {
                 .children(".checkbox__item")
                 .children(".box__checked")
                 .toggleClass("display-none");
+
+            if ($(this).hasClass("grid__row--active")) {
+                // Lấy ra employeeId theo dòng đang click
+                me.employeesIDs.push(id);
+            } else {
+                me.employeesIDs.filter((employeeId, index) => {
+                    // Loại bỏ ra các id đã đc tick xong sau đó k tick nx
+                    if (employeeId === id) {
+                        me.employeesIDs.splice(index, 1);
+                    }
+                });
+            }
         });
     }
 
@@ -206,6 +251,9 @@ class Employees {
                 let checkbox = $(
                     '<div class="checkbox__item border-gray"><div class="display-none box__checked"><i class="fa-solid fa-check center-the-element checked"></i></div></div>'
                 );
+
+                // thêm id vào checkbox để khi click mk sẽ túm đc id tương ứng
+                checkbox.attr("id", item.EmployeeId);
 
                 row.append(checkbox);
 

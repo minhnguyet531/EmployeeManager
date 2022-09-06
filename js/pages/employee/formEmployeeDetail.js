@@ -210,6 +210,7 @@ class FormEmployeeDetail {
             }
 
             data[field] = value;
+            data.EmployeeId = "5483050e-2552-41d6-a5c1-dc80c3c51f62";
         });
 
         return data;
@@ -221,6 +222,7 @@ class FormEmployeeDetail {
             validateForm;
         validateForm = me.validateForm();
         // todo save to database...
+
         if (validateForm) {
             // Lấy data từ form để tiến hành lưu
             let data = me.getValueForm();

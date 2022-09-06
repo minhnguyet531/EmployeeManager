@@ -532,7 +532,8 @@ input {
   .grid__style--table {
     width: 105vw;
     grid-template-columns: 5rem 15rem 20rem 10rem 10rem 15rem 25rem 15rem 15rem 15rem 20rem;
-    padding: 1rem 0; }
+    grid-template-rows: 2.6rem;
+    padding: 0.8rem 0; }
     .grid__style--table:not(:last-child) {
       border-bottom: 3px solid #bbbbbb; }
 
