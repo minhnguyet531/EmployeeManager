@@ -20,8 +20,8 @@
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
-    min-width: 62rem;
-    height: 50rem;
+    width: 68rem;
+    height: 93%;
 
     @include srollbar;
 
@@ -53,6 +53,11 @@
         &:active {
             background-color: rgba($color-red-light, 0.8);
         }
+    }
+
+    &__modal {
+        width: 48rem !important;
+        height: auto !important;
     }
 }
 

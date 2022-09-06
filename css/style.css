@@ -385,8 +385,8 @@ input {
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
-  min-width: 62rem;
-  height: 50rem;
+  width: 68rem;
+  height: 93%;
   overflow: auto; }
   .popup::-webkit-scrollbar {
     width: 0.8rem;
@@ -422,6 +422,9 @@ input {
       background-color: rgba(255, 71, 71, 0.7); }
     .popup__delete:active {
       background-color: rgba(255, 71, 71, 0.8); }
+  .popup__modal {
+    width: 48rem !important;
+    height: auto !important; }
 
 .btn__popup {
   height: 4rem; }
@@ -735,7 +738,8 @@ input {
   padding: 0 2rem;
   background-color: #ffffff;
   grid-row: 1/2;
-  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.2);
+  margin-bottom: 0.2rem; }
 
 .menu {
   position: relative;
@@ -764,8 +768,7 @@ input {
 
 .page {
   position: relative;
-  background-color: #ffffff;
-  margin-top: 1.4rem; }
+  background-color: #ffffff; }
 
 .container-page {
   padding: 0 1.8rem; }

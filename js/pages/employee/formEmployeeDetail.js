@@ -4,18 +4,39 @@ class FormEmployeeDetail {
         this.inputChange();
     }
 
+    // mở form
     openForm(param) {
-        let me = this;
+        let me = this,
+            inputEmployeeCode;
+
+        // mở form
+        me.form.show();
 
         Object.assign(me, param); // gán thêm object param vào me
 
+        inputEmployeeCode = this.form.find($("[SetField='EmployeeCode']"));
+
         // Mở Form
         this.form.toggleClass("display-none");
+
+        if (!this.form.hasClass("display-none")) {
+            // Nếu form mở lên thì focus vào ô mã nhân viên
+            inputEmployeeCode.focus();
+
+            // Gán giá trị Mã nhân viên sinh tự động khi mở form
+            me.generateEmployeeCode();
+        }
 
         // Nếu ở mode thêm thì reset form
         if (param && param.formMode == Enumeration.FormMode.Add) {
             me.resetForm();
         }
+    }
+
+    // Đóng form
+    closeForm() {
+        let me = this;
+        me.form.hide();
     }
 
     // Thay đổi value của các thẻ input (nếu khi lưu mà chưa nhập, sau đó nhập bổ sung thì sẽ ẩn hộp thông báo)
@@ -210,7 +231,7 @@ class FormEmployeeDetail {
             }
 
             data[field] = value;
-            data.EmployeeId = "5483050e-2552-41d6-a5c1-dc80c3c51f62";
+            data.EmployeeId = "b184a118-6f7d-4e15-9721-623977615fc3"; // fix tạm thế để test FE
         });
 
         return data;
@@ -240,6 +261,8 @@ class FormEmployeeDetail {
     }
 
     saveData(data) {
+        console.log(data);
+
         let me = this,
             method = Resource.Method.Post,
             url = me.form.attr("Url");
@@ -263,7 +286,7 @@ class FormEmployeeDetail {
     resetForm() {
         let me = this;
         me.form.find("[SetField]").each(function () {
-            //cach 1
+            // cach 1
             // let dataType = $(this).attr("DataType") || "String",
             //     functionName = "reset" + dataType;
 
@@ -284,4 +307,24 @@ class FormEmployeeDetail {
     // resetString(control) {
     //     $(control).val("");
     // }
+
+    // Tự sinh mã nhân viên theo cú pháp "NV" + mã số nhân viên lớn nhất trong hệ thống + 1
+    generateEmployeeCode() {
+        let me = this;
+        let url = me.form.attr("Url");
+        CommonFn.Ajax(url, Resource.Method.Get, null, function (response) {
+            if (response) {
+                let employeeCodes = response
+                    .map(
+                        (item) => +item.EmployeeCode.replace(/NV/g, "") // thay thế tất cả các chữ "NV" trong chuỗi bằng "" đồng thời trả về kiểu dữ liệu number
+                    )
+                    .sort((a, b) => b - a); // sắp xếp mảng theo thứ tự giảm dần
+
+                let employeeCode = "NV" + (employeeCodes[0] + 1); // tự sinh mã nhân viên theo cú pháp "NV" + mã số nhân viên lớn nhất trong hệ thống + 1
+                me.form.find("[SetField='EmployeeCode']").val(employeeCode);
+            } else {
+                console.log("Có lỗi");
+            }
+        });
+    }
 }

@@ -6,7 +6,9 @@
 
 
 // 🍟 =>>>>>> Thêm + nhân bản
-1. Mặc địch focus vào ô nhập liệu mã nhân viên. Mã nhân viên tự động có và tự tăng theo tiêu chí: "NV" + mã số nhân viên lớn nhất trong hệ thống + 1
+1. Mặc địch focus vào ô nhập liệu mã nhân viên. => done 🎉🎉✨
+1.1. Mã nhân viên tự động có và tự tăng theo tiêu chí: "NV" + mã số nhân viên lớn nhất trong hệ thống + 1 => done 🎉🎉✨
+1.2. Format lại date
 2. Nhân bản: bản chất nó là thêm mới nhân viên nhưng dữ liệu sẽ ddc tự động điện theo bảng ghi mà mk muốn nó nhân bản lên (dĩ nhiên thg mã nv sẽ khác r và muốn thay đổi j thì vẫn thay đổi đc tốt) => cảm giác như đầu nó là thêm mới còn đuôi nó là sửa haha 🤣😂😁
 
 //🍟 =>>>>>> sửa
@@ -15,8 +17,8 @@
 
 // 🍟 =>>>>>> xóa
 1. Chọn 1 bản ghi ở bảng dữ liệu màn hình danh sách chọn xóa, hiển thị cảng báo: "Bạn có chắc chắn muốn xóa nhân viên [Mã nhân viên] không?"
-(có => cho phép xóa, không => hủy xóa và ẩn popup cảnh báo)
-2. Tự mở rộng thêm chức năng xóa nhiều
+(có => cho phép xóa, không => hủy xóa và ẩn popup cảnh báo) => done 🎉🎉✨
+2. Tự mở rộng thêm chức năng xóa nhiều => done 🎉🎉✨
 
 //🍟 =>>>>>> phân trang
 
@@ -57,5 +59,6 @@
 
 //🥵😱😱🥵😱😱😰 =>>>>>>> Bug hiện tại: save data
 1. K tự reload lại khi submit xong form -.- (kể cả xóa hay thêm mới, toàn phải tự f5 lại ms đc)
+
 
 
