@@ -4,7 +4,10 @@ var CommonFn = CommonFn || {};
 // Hàm format số tiền
 CommonFn.formatMoney = (money) => {
     if (money && !isNaN(money)) {
-        return money.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1.");
+        return money.toLocaleString("it-IT", {
+            style: "currency",
+            currency: "VND",
+        });
     } else {
         return money;
     }

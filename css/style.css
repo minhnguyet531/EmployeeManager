@@ -124,6 +124,15 @@ input {
 .border__right--gray {
   border-right: 1px solid #bbbbbb; }
 
+.gap--8 {
+  gap: 0.8rem; }
+
+.gap--24 {
+  gap: 2.4rem; }
+
+.gap--32 {
+  gap: 3.2rem; }
+
 .center-the-element {
   display: flex;
   justify-content: center;
@@ -535,7 +544,7 @@ input {
   .grid__style--table {
     width: 105vw;
     grid-template-columns: 5rem 15rem 20rem 10rem 10rem 15rem 25rem 15rem 15rem 15rem 20rem;
-    grid-template-rows: 2.6rem;
+    grid-template-rows: 2.4rem;
     padding: 0.8rem 0; }
     .grid__style--table:not(:last-child) {
       border-bottom: 3px solid #bbbbbb; }
@@ -768,7 +777,8 @@ input {
 
 .page {
   position: relative;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  padding: 0 0.8rem; }
 
 .container-page {
   padding: 0 1.8rem; }

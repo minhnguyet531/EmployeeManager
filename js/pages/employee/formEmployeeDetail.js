@@ -2,29 +2,102 @@ class FormEmployeeDetail {
     constructor(popupName) {
         this.form = $(`#${popupName}`);
         this.inputChange();
+        this.renderComboBox();
+    }
+
+    renderComboBox() {
+        let me = this;
+
+        // Trả ra combobox vị trí
+        me.getDataCombobox("Positions");
+
+        // Trả ra combobox phòng ban
+        me.getDataCombobox("Departments");
+    }
+
+    // lấy dữ liệu từ server
+    getDataCombobox(name) {
+        let me = this,
+            url = `https://cukcuk.manhnv.net/api/v1/${name}`;
+        CommonFn.Ajax(url, Resource.Method.Get, {}, function (response) {
+            if (response) {
+                response.map(function (item) {
+                    //name.slice(0, -1) : lấy tên bảng trừ đi ký tự cuối cùng
+                    let option = $(
+                        `<option SetField=${`${name.slice(
+                            0,
+                            -1
+                        )}Name`} value = ${`${name.slice(0, -1)}Id`}>${
+                            item[`${name.slice(0, -1)}Name`]
+                        }</option>`
+                    );
+
+                    option.attr("value", item[`${name.slice(0, -1)}Id`]);
+                    me.form.find($(`[id=${name}]`)).append(option);
+                });
+            } else {
+                console.log("Có lỗi khi lấy dữ liệu từ server");
+            }
+        });
     }
 
     // mở form
     openForm(param) {
         let me = this,
             inputEmployeeCode;
-
-        // mở form
-        me.form.show();
+        // me.renderComboBox();
 
         Object.assign(me, param); // gán thêm object param vào me
 
-        inputEmployeeCode = this.form.find($("[SetField='EmployeeCode']"));
-
         // Mở Form
-        this.form.toggleClass("display-none");
+        me.form.toggleClass("display-none");
 
-        if (!this.form.hasClass("display-none")) {
+        // Lấy thông tin nhân viên thực hiện chức năng sửa từ object me
+        const dataRowClick = me.dataRowClick;
+        // Hiển thị thông tin nhân viên lên form khi thực hiện chức năng sửa
+        if (dataRowClick) {
+            let inputs = me.form.find(".input");
+            for (const input of inputs) {
+                let fieldName = $(input).attr("SetField"),
+                    type = $(input).attr("type");
+
+                // Gán giá trị cho các trường input:
+                if (dataRowClick[fieldName] !== null) {
+                    let value = dataRowClick[fieldName];
+                    input.value = value;
+
+                    if (type === "date") {
+                        let indexEnd = value.indexOf("T");
+                        value = value.slice(0, indexEnd);
+                        input.value = value;
+                    }
+                }
+
+                // Gán giá trị cho các trường select: (chưa đc chọn)
+                if (
+                    dataRowClick[fieldName] === null &&
+                    (fieldName === "PositionId" ||
+                        fieldName === "DepartmentId" ||
+                        fieldName === "Gender")
+                ) {
+                    input.value = "";
+                }
+            }
+        }
+
+        // lấy input của mã nhân viên để sau thực hiện khi bật form lên thì nó focus vào input mã nhân viên
+        inputEmployeeCode = me.form.find($("[SetField='EmployeeCode']"));
+
+        if (!me.form.hasClass("display-none")) {
             // Nếu form mở lên thì focus vào ô mã nhân viên
             inputEmployeeCode.focus();
 
-            // Gán giá trị Mã nhân viên sinh tự động khi mở form
-            me.generateEmployeeCode();
+            // Gán giá trị Mã nhân viên sinh tự động khi mở form nếu là thêm mới
+
+            // Nếu k có dòng nào đc chọn thì ms thực hiện gán mã nhân viên tự động
+            if (me.parent.employeeIDs.length === 0) {
+                me.generateEmployeeCode();
+            }
         }
 
         // Nếu ở mode thêm thì reset form
@@ -36,7 +109,7 @@ class FormEmployeeDetail {
     // Đóng form
     closeForm() {
         let me = this;
-        me.form.hide();
+        me.form.toggleClass("display-none");
     }
 
     // Thay đổi value của các thẻ input (nếu khi lưu mà chưa nhập, sau đó nhập bổ sung thì sẽ ẩn hộp thông báo)
@@ -61,7 +134,7 @@ class FormEmployeeDetail {
         }
 
         if (isValid) {
-            // isValid = me.validatePhoneNumber(); // Validate các trường số điện thoại
+            isValid = me.validatePhoneNumber(); // Validate các trường số điện thoại
         }
 
         if (isValid) {
@@ -69,7 +142,7 @@ class FormEmployeeDetail {
         }
 
         if (isValid) {
-            // isValid = me.validateCustom(); // Validate các trường đặc biệt khác
+            // isValid = me.validateDate(); // Validate các trường đặc biệt khác
         }
 
         return isValid;
@@ -152,8 +225,8 @@ class FormEmployeeDetail {
 
         me.form.find("[Validate='phoneNumber']").each(function () {
             let value = $(this).val();
-            isNumber = me.checkNumber(value);
-            if (!isNumber || !me.checkPhoneNumber(value)) {
+            isNumber = me.checkPhoneNumber(value);
+            if (!isNumber) {
                 isValid = false;
                 me.showBoxNotification($(this), "box-notification-phone");
                 return isValid;
@@ -172,6 +245,9 @@ class FormEmployeeDetail {
         phoneNumber.match(
             /^((\+84|84|0|)(3[2-9]|5[6|8|9]|7[0|6-9]|8[1-9]|9[0|1|2|3|4|5|6|7|8|9])([0-9]{7}))$/
         );
+
+    //Kiểm tra ngày tháng
+    validateDate() {}
 
     // Hiển thị box thông báo của input
     showBoxNotification(selector, typeNotification) {
@@ -230,8 +306,30 @@ class FormEmployeeDetail {
                     }
             }
 
+            if (field === "PositionId") {
+                //Lấy ID của vị trí
+                value = $("#Positions option:selected").val();
+
+                if (value !== 0) {
+                    let positionName = $("#Positions option:selected").text();
+                    data["PositionName"] = positionName;
+                }
+            } else if (field === "DepartmentId") {
+                // Lấy ID của phòng ban
+                value = $("#Departments option:selected").val();
+
+                if (value !== 0) {
+                    let departmentName = $(
+                        "#Departments option:selected"
+                    ).text();
+                    data["DepartmentName"] = departmentName;
+                }
+            }
+
             data[field] = value;
-            data.EmployeeId = "b184a118-6f7d-4e15-9721-623977615fc3"; // fix tạm thế để test FE
+            if (me.dataRowClick) {
+                data.EmployeeId = me.dataRowClick.EmployeeId;
+            }
         });
 
         return data;
@@ -261,20 +359,26 @@ class FormEmployeeDetail {
     }
 
     saveData(data) {
-        console.log(data);
+        // console.table(data);
 
         let me = this,
             method = Resource.Method.Post,
             url = me.form.attr("Url");
+
         // Xử lý lưu vào DB
         if (me.formMode === Enumeration.FormMode.Edit) {
             method = Resource.Method.Put;
+            url = url + "/" + me.dataRowClick.EmployeeId;
         }
 
         CommonFn.Ajax(url, method, data, function (response) {
             if (response) {
+                me.parent.employeeIDs = [];
                 me.parent.getData();
+                window.location.reload();
+                // $("#tableEmployees").load(location.href + "  #tableEmployees");
 
+                me.closeForm();
                 me.resetForm();
             } else {
                 console.log("Có lỗi");

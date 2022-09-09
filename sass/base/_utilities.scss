@@ -125,6 +125,20 @@
     }
 }
 
+.gap {
+    &--8 {
+        gap: 0.8rem;
+    }
+
+    &--24 {
+        gap: 2.4rem;
+    }
+
+    &--32 {
+        gap: 3.2rem;
+    }
+}
+
 .center-the-element {
     @include flex(center, center);
 }

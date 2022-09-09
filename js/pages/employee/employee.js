@@ -40,17 +40,27 @@ class Employees {
                 parent: me,
                 formMode: Enumeration.FormMode.Add,
             };
+        if (me.employeeIDs.length >= 1) {
+            alert(
+                "Để thực hiện chức năng thêm mới vui lòng k click trường nào trong bảnh"
+            );
+            return;
+        }
         me.formEmployeeDetail.openForm(param);
     }
 
     edit() {
-        let me = this,
-            param = {
-                parent: me,
-                formMode: Enumeration.FormMode.Edit,
-            };
-        me.formEmployeeDetail.openForm(param);
+        let me = this;
+
+        if (me.employeeIDs.length !== 1) {
+            alert("Bạn phải chọn 1 bản ghi để sửa");
+            return;
+        } else {
+            me.getRowData(me.employeeIDs[0]);
+        }
     }
+
+    copy() {}
 
     close() {
         let me = this;
@@ -63,19 +73,19 @@ class Employees {
     // xóa bảng ghi thông tin nhân viên được chọn
     delete() {
         let me = this,
-            employeesIDs = me.employeesIDs, // Lấy ra các employeeId đã chọn
-            employeeCodes = me.employeesCodes, // Lấy ra các employeeCode đã chọn
+            employeeIDs = me.employeeIDs, // Lấy ra các employeeId đã chọn
+            employeeCodes = me.employeesCodes, // Lấy ra các employeeCode đã chọn để sử dụng cho thông báo
             url = me.gridTable.attr("Url");
 
         let listEmployeeRemove = employeeCodes.join(", "); // Nội dung thông báo những nhân viên muốn xóa
         let textContent =
-            employeesIDs.length === 0
+            employeeIDs.length === 0
                 ? "Bạn chưa chọn bản ghi nào để xóa. Hãy thao tác lại!!!"
                 : `Bạn có chắc chắn muốn xóa nhân viên [${listEmployeeRemove}] không?`;
 
         let popupDelete = $(
             `<div class="popup popup__modal" id="popupDelete" > <i class="fa-solid fa-xmark icon__popup--xmark flex-horizontal-end btn__cancel" ></i><div class="popup__title">Xóa bản ghi thông tin nhân viên</div> <div class="center-the-element m-24"><i class="fa-solid fa-circle-exclamation icon__popup icon__popup--delete"></i><div class="popup__content">${textContent}</div> </div><div class="popup__buttons flex-horizontal-end">${
-                employeesIDs.length === 0
+                employeeIDs.length === 0
                     ? '<button class="btn btn__effect btn__less3-word btn-popup popup__delet btn__cancel" >OK</button>'
                     : '<button class="btn__effect btn__less3-word btn__popup btn__popup--left btn__cancel" >Hủy</button><button class="btn btn__effect btn__less3-word btn-popup popup__delete btn__delete" >Xóa</button> '
             }</div></div>`
@@ -84,18 +94,19 @@ class Employees {
         // Hiện thông báo hỏi muốn xóa k
         me.gridTable.append(popupDelete);
 
-        employeesIDs.filter(function (item) {
+        employeeIDs.filter(function (item) {
             // Gán sự kiện cho nút đồng ý xóa
             me.gridTable.on("click", ".btn__delete", function () {
                 // Gọi hàm xóa lần lượt các bảng ghi
                 CommonFn.Ajax(
                     `${url}/${item}`,
                     Resource.Method.Delete,
-                    {},
+                    null,
                     function (response) {
                         if (response) {
                             //load lại dữ liệu
-                            me.loadData(response);
+                            me.getData();
+                            window.location.reload();
                         } else {
                             console.log("Có lỗi khi xóa dữ liệu từ server");
                         }
@@ -122,21 +133,20 @@ class Employees {
         me.formEmployeeDetail.save();
     }
 
-    copy() {}
+    reload() {
+        let me = this;
+        me.gridTable.load(location.href + "  #tableEmployees");
+        me.getData();
+    }
 
+    // Các sự kiện thao tác trong bảng vd click lựa chọn...
     initEventsTable() {
         let me = this;
-        (me.employeesIDs = []), (me.employeesCodes = []);
+        (me.employeeIDs = []), (me.employeesCodes = []);
         /**
          * Khỏi tạo sự kiện khi click vào mỗi dòng, đồng thời checkbox cx đc tích tương ứng
          *  */
         me.gridTable.on("click", ".grid__row", function () {
-            //lấy ra employeeId của dòng đang click
-            let id = $(this).children(".checkbox__item").attr("id");
-
-            //lấy ra employeeCode của dòng đang click
-            let code = $(this).children("[FieldName = 'EmployeeCode']").text();
-
             // toggleClass (nếu có class đó r thì xóa, k có class đó thì add vào)
             $(this).toggleClass("grid__row--active");
 
@@ -146,15 +156,21 @@ class Employees {
                 .children(".box__checked")
                 .toggleClass("display-none");
 
+            //lấy ra employeeId của dòng đang click
+            let id = $(this).children(".checkbox__item").attr("id");
+
+            //lấy ra employeeCode của dòng đang click
+            let code = $(this).children("[FieldName = 'EmployeeCode']").text();
+
             if ($(this).hasClass("grid__row--active")) {
                 // Lấy ra employeeId theo dòng đang click
-                me.employeesIDs.push(id);
+                me.employeeIDs.push(id);
                 me.employeesCodes.push(code);
             } else {
-                me.employeesIDs.filter((employeeId, index) => {
+                me.employeeIDs.filter((employeeId, index) => {
                     // Loại bỏ ra các id đã đc tick xong sau đó k tick nx
                     if (employeeId === id) {
-                        me.employeesIDs.splice(index, 1);
+                        me.employeeIDs.splice(index, 1);
                     }
                 });
 
@@ -191,7 +207,7 @@ class Employees {
             },
             columns = [];
 
-        // Duyệt từng cột để vẽ header
+        // Duyệt từng cột để lấy các thông tin của cột có trong header table
         me.gridTable.find(".grid__item").each(function () {
             let column = { ...columnDefault },
                 that = $(this);
@@ -295,7 +311,7 @@ class Employees {
 
                 row.append(checkbox);
 
-                // Duyệt từng cột để vẽ header
+                // Duyệt từng cột để vẽ body
                 me.gridTable.find(".grid__item").each(function () {
                     let fieldName = $(this).attr("FieldName"),
                         dataType = $(this).attr("DataType"),
@@ -304,18 +320,6 @@ class Employees {
                         className = me.getClassFormat(dataType);
 
                     if (fieldName !== "") {
-                        if (fieldName === "Gender") {
-                            if (value === 0) value = "Khác";
-                            if (value === 1) value = "Nam";
-                            if (value === 2) value = "Nữ";
-                        }
-
-                        if (fieldName === "WorkStatus") {
-                            if (value === 0) value = "Còn làm việc";
-                            if (value === 1) value = "Đã nghỉ việc";
-                            if (value === 2) value = "Tạm nghỉ";
-                        }
-
                         h2.attr("FieldName", fieldName);
                         h2.text(value);
                         h2.addClass(className);
@@ -344,10 +348,26 @@ class Employees {
             case Resource.DataTypeColumn.Number:
                 value = CommonFn.formatMoney(value);
                 break;
-            case "Date":
+            case Resource.DataTypeColumn.Date:
+                value = CommonFn.formatDate(value);
                 break;
             case "Enum":
                 break;
+        }
+
+        if (fieldName === "WorkStatus") {
+            // fix cứng tạm tại trên API của a Mạnh khum thấy có name -.-
+            switch (value) {
+                case 0:
+                    value = "Đang làm việc";
+                    break;
+                case 1:
+                    value = "Đã thôi việc";
+                    break;
+                case 2:
+                    value = "Tạm nghỉ làm";
+                    break;
+            }
         }
 
         return value;
@@ -369,6 +389,24 @@ class Employees {
         }
 
         return className;
+    }
+
+    // Lấy ra thông tin của 1 dòng đang click để thực hiện chức năng sửa
+    getRowData(id) {
+        let me = this,
+            url = me.gridTable.attr("Url") + "/" + id;
+        CommonFn.Ajax(url, Resource.Method.Get, {}, function (response) {
+            if (response) {
+                let param = {
+                    parent: me,
+                    formMode: Enumeration.FormMode.Edit,
+                    dataRowClick: response,
+                };
+                me.formEmployeeDetail.openForm(param);
+            } else {
+                console.log("Có lỗi khi lấy dữ liệu từ server");
+            }
+        });
     }
 }
 
