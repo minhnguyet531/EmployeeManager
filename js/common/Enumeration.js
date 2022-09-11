@@ -6,6 +6,7 @@ Enumeration.FormMode = {
     Add: 1, // Thêm mới
     Edit: 2, // Sửa
     Delete: 3, // Xóa
+    Copy: 4, // Copy
 };
 
 // Giới tính

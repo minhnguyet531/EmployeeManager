@@ -9,10 +9,11 @@ namespace MISA.BA._21H._2022.API.Entities
     /// </summary>
     public class Employee
     {
+
         /// <summary>
         /// ID nhân viên
         /// </summary>
-        public Guid EmployeeID { get; set; }
+        public Guid EmployeeId { get; set; }
 
         /// <summary>
         /// Mã nhân viên
@@ -22,7 +23,6 @@ namespace MISA.BA._21H._2022.API.Entities
         /// <summary>
         /// Tên nhân viên
         /// </summary>
-        [Required(ErrorMessage = "e005")]
         public string EmployeeName { get; set; }
 
         /// <summary>
@@ -31,9 +31,14 @@ namespace MISA.BA._21H._2022.API.Entities
         public DateTime DateOfBirth { get; set; }
 
         /// <summary>
-        /// Giới tính Alt Enter
+        /// Giới tính
         /// </summary>
         public int Gender { get; set; }
+
+        /// <summary>
+        /// Tên giới tính
+        /// </summary>
+        public string GenderName { get; set; }
 
         /// <summary>
         /// Số CMND
@@ -43,17 +48,22 @@ namespace MISA.BA._21H._2022.API.Entities
         /// <summary>
         /// Nơi cấp CMND 
         /// </summary>
-        public string IdentityIssuedPlace { get; set; }
+        public string IdentityPlace { get; set; }
 
         /// <summary>
         /// Ngày cấp CMND
         /// </summary>
-        public DateTime IdentityIssuedDate { get; set; }
+        public DateTime IdentityDate { get; set; }
 
         /// <summary>
         /// Email
         /// </summary>
         public string Email { get; set; }
+
+        /// <summary>
+        /// Địa chỉ nhân viên
+        /// </summary>
+        public string Address { get; set; }
 
         /// <summary>
         /// Số điện thoại
@@ -63,7 +73,7 @@ namespace MISA.BA._21H._2022.API.Entities
         /// <summary>
         /// ID vị trí
         /// </summary>
-        public Guid PositionID { get; set; }
+        public Guid PositionId { get; set; }
 
         /// <summary>
         /// Tên vị trí
@@ -73,17 +83,12 @@ namespace MISA.BA._21H._2022.API.Entities
         /// <summary>
         /// ID phòng ban
         /// </summary>
-        public Guid DepartmentID { get; set; }
+        public Guid DepartmentId { get; set; }
 
         /// <summary>
         /// Tên phòng ban
         /// </summary>
         public string DepartmentName { get; set; }
-
-        /// <summary>
-        /// Mã số thuế cá nhân
-        /// </summary>
-        public string? TaxCode { get; set; }
 
         /// <summary>
         /// Lương
@@ -93,12 +98,17 @@ namespace MISA.BA._21H._2022.API.Entities
         /// <summary>
         /// Ngày gia nhập
         /// </summary>
-        public DateTime JoiningDate { get; set; }
+        public DateTime JoinDate { get; set; }
 
         /// <summary>
         /// Tình trạng làm việc
         /// </summary>
         public int WorkStatus { get; set; }
+
+        /// <summary>
+        /// Mã thuế cá nhân
+        /// </summary>
+        public string PersonalTaxCode { get; set; }
 
         /// <summary>
         /// Ngày tạo

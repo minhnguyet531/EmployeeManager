@@ -40,9 +40,10 @@ class Employees {
                 parent: me,
                 formMode: Enumeration.FormMode.Add,
             };
+
         if (me.employeeIDs.length >= 1) {
             alert(
-                "Để thực hiện chức năng thêm mới vui lòng k click trường nào trong bảnh"
+                "Để thực hiện chức năng thêm mới vui lòng k click trường nào trong bảng"
             );
             return;
         }
@@ -56,11 +57,20 @@ class Employees {
             alert("Bạn phải chọn 1 bản ghi để sửa");
             return;
         } else {
-            me.getRowData(me.employeeIDs[0]);
+            me.getRowData(me.employeeIDs[0], "Edit");
         }
     }
 
-    copy() {}
+    copy() {
+        let me = this;
+        if (me.employeeIDs.length !== 1) {
+            alert("Bạn phải chọn 1 bản ghi để copy");
+            return;
+        } else {
+            me.getRowData(me.employeeIDs[0], "Copy");
+            me.formEmployeeDetail.generateEmployeeCode();
+        }
+    }
 
     close() {
         let me = this;
@@ -124,7 +134,10 @@ class Employees {
         });
     }
 
-    cancel() {}
+    cancel() {
+        let me = this;
+        me.formEmployeeDetail.closeForm();
+    }
 
     save() {
         let me = this;
@@ -135,7 +148,7 @@ class Employees {
 
     reload() {
         let me = this;
-        me.gridTable.load(location.href + "  #tableEmployees");
+        window.location.reload();
         me.getData();
     }
 
@@ -391,15 +404,15 @@ class Employees {
         return className;
     }
 
-    // Lấy ra thông tin của 1 dòng đang click để thực hiện chức năng sửa
-    getRowData(id) {
+    // Lấy ra thông tin của 1 dòng đang click
+    getRowData(id, typeFormMode) {
         let me = this,
             url = me.gridTable.attr("Url") + "/" + id;
         CommonFn.Ajax(url, Resource.Method.Get, {}, function (response) {
             if (response) {
                 let param = {
                     parent: me,
-                    formMode: Enumeration.FormMode.Edit,
+                    formMode: `Enumeration.FormMode.${typeFormMode}`,
                     dataRowClick: response,
                 };
                 me.formEmployeeDetail.openForm(param);
