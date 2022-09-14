@@ -25,13 +25,13 @@
     }
 
     &__style--table {
-        width: 105vw;
-        grid-template-columns: 5rem 15rem 20rem 10rem 10rem 15rem 25rem 15rem 15rem 15rem 20rem;
+        // width: 150%;
+        width: 110vw;
+        grid-template-columns: 5rem 14rem 20rem 10rem 15rem 15rem 20rem 15rem 15rem 20rem 20rem;
         grid-template-rows: 2.4rem;
-        padding: 0.8rem 0;
 
         &:not(:last-child) {
-            border-bottom: 3px solid $color-gray;
+            border-bottom: 2.2px solid $color-gray;
         }
     }
 }

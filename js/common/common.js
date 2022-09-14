@@ -14,13 +14,15 @@ CommonFn.formatMoney = (money) => {
 };
 
 // Format ngày tháng
-CommonFn.formatDate = (dateSrc) => {
+CommonFn.formatDate = (dateSrc, typeDate) => {
     let date = new Date(dateSrc),
         year = date.getFullYear().toString(),
         month = (date.getMonth() + 1).toString().padStart(2, "0"),
         day = date.getDate().toString().padStart(2, "0");
 
-    return `${day}/${month}/${year}`;
+    return typeDate === "yyyy-MM-dd"
+        ? `${year}/${month}/${day}`
+        : `${day}/${month}/${year}`;
 };
 
 // Hàm ajax gọi lên server lấy dữ liệu

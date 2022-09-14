@@ -1,21 +1,36 @@
-.table {
-    position: relative;
-}
 .style__layout--table {
     height: 45rem;
     @include srollbar;
+    .header-table {
+        font-size: 1rem;
+        padding: 1.2rem 0 0.3rem 0;
+    }
+    .body__table {
+        font-size: 0.85rem;
+    }
 }
 
 // table grid
-.grid__row--active {
-    background-color: rgba($color-primary-dark, 0.1);
+.grid__row {
+    padding: 0.8rem 0;
+
+    &:nth-child(odd) {
+        background-color: rgba($color-gray-light-1, 0.16);
+    }
+    &:hover {
+        color: $color-tertiary;
+        background-color: $color-primary;
+    }
+
+    &--active {
+        color: $color-black !important;
+        background-color: rgba($color-check, 0.2) !important;
+    }
 }
 
 .grid__item {
-    font-size: 1.3rem;
-
     &:not(:first-child) {
-        margin-right: 3.8rem;
+        margin-right: 3.2rem;
     }
 }
 

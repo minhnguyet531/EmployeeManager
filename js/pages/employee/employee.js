@@ -20,6 +20,9 @@ class Employees {
 
         // sự kiện thao tác với table
         this.initEventsTable();
+
+        //sự kiện thao tác với pagination
+        this.initEventPagination();
     }
 
     initEventToolbar() {
@@ -53,22 +56,21 @@ class Employees {
     edit() {
         let me = this;
 
-        if (me.employeeIDs.length !== 1) {
+        if (me.employeeIDs.length === 1) {
+            me.getRowData(me.employeeIDs[0], "Edit");
+        } else {
             alert("Bạn phải chọn 1 bản ghi để sửa");
             return;
-        } else {
-            me.getRowData(me.employeeIDs[0], "Edit");
         }
     }
 
     copy() {
         let me = this;
-        if (me.employeeIDs.length !== 1) {
+        if (me.employeeIDs.length === 1) {
+            me.getRowData(me.employeeIDs[0], "Copy");
+        } else {
             alert("Bạn phải chọn 1 bản ghi để copy");
             return;
-        } else {
-            me.getRowData(me.employeeIDs[0], "Copy");
-            me.formEmployeeDetail.generateEmployeeCode();
         }
     }
 
@@ -136,7 +138,7 @@ class Employees {
 
     cancel() {
         let me = this;
-        me.formEmployeeDetail.closeForm();
+        me.formEmployeeDetail.cancel();
     }
 
     save() {
@@ -287,9 +289,14 @@ class Employees {
 
     renderHeader() {
         let me = this,
+            checkbox = $(
+                '<div id = "checkbox__header" class="checkbox__item border-gray"><div class="display-none box__checked"><i class="fa-solid fa-check center-the-element checked"></i></div></div>'
+            ),
             headerTable = $(
                 '<div class="header-table grid grid__style--table text-bold"></div>'
             );
+
+        headerTable.append(checkbox);
 
         me.columnConfig.filter(function (column) {
             let text = column.Text,
@@ -362,7 +369,7 @@ class Employees {
                 value = CommonFn.formatMoney(value);
                 break;
             case Resource.DataTypeColumn.Date:
-                value = CommonFn.formatDate(value);
+                value = CommonFn.formatDate(value, "dd-MM-yyyy");
                 break;
             case "Enum":
                 break;
@@ -409,16 +416,28 @@ class Employees {
         let me = this,
             url = me.gridTable.attr("Url") + "/" + id;
         CommonFn.Ajax(url, Resource.Method.Get, {}, function (response) {
+            let FormMode =
+                typeFormMode === "Edit"
+                    ? Enumeration.FormMode.Edit
+                    : Enumeration.FormMode.Copy;
             if (response) {
                 let param = {
                     parent: me,
-                    formMode: `Enumeration.FormMode.${typeFormMode}`,
+                    formMode: FormMode,
                     dataRowClick: response,
                 };
                 me.formEmployeeDetail.openForm(param);
             } else {
                 console.log("Có lỗi khi lấy dữ liệu từ server");
             }
+        });
+    }
+
+    initEventPagination() {
+        let me = this;
+        me.gridTable.find(".pagination__item").on("click", function () {
+            let pageIndex = $(this).attr("pageIndex");
+            me.loadData(pageIndex);
         });
     }
 }

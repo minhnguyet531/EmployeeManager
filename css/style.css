@@ -209,6 +209,12 @@ input {
     width: 14rem;
     height: 4rem; }
 
+.opacity-05 {
+  opacity: 0.5; }
+
+.opacity-1 {
+  opacity: 1; }
+
 .text-color-black {
   color: #000000 !important; }
 
@@ -275,9 +281,6 @@ input {
     background-color: rgba(187, 187, 187, 0.3);
     color: #000000; }
 
-.table {
-  position: relative; }
-
 .style__layout--table {
   height: 45rem;
   overflow: auto; }
@@ -297,14 +300,25 @@ input {
     -moz-border-radius: 10rem;
     -ms-border-radius: 10rem;
     -o-border-radius: 10rem; }
+  .style__layout--table .header-table {
+    font-size: 1rem;
+    padding: 1.2rem 0 0.3rem 0; }
+  .style__layout--table .body__table {
+    font-size: 0.85rem; }
 
-.grid__row--active {
-  background-color: rgba(1, 145, 96, 0.1); }
+.grid__row {
+  padding: 0.8rem 0; }
+  .grid__row:nth-child(odd) {
+    background-color: rgba(229, 229, 229, 0.16); }
+  .grid__row:hover {
+    color: #ffffff;
+    background-color: #01b075; }
+  .grid__row--active {
+    color: #000000 !important;
+    background-color: rgba(1, 176, 117, 0.2) !important; }
 
-.grid__item {
-  font-size: 1.3rem; }
-  .grid__item:not(:first-child) {
-    margin-right: 3.8rem; }
+.grid__item:not(:first-child) {
+  margin-right: 3.2rem; }
 
 .checkbox__item {
   position: relative;
@@ -542,12 +556,11 @@ input {
   .grid__block {
     grid-column: 1/-1; }
   .grid__style--table {
-    width: 105vw;
-    grid-template-columns: 5rem 15rem 20rem 10rem 10rem 15rem 25rem 15rem 15rem 15rem 20rem;
-    grid-template-rows: 2.4rem;
-    padding: 0.8rem 0; }
+    width: 110vw;
+    grid-template-columns: 5rem 14rem 20rem 10rem 15rem 15rem 20rem 15rem 15rem 20rem 20rem;
+    grid-template-rows: 2.4rem; }
     .grid__style--table:not(:last-child) {
-      border-bottom: 3px solid #bbbbbb; }
+      border-bottom: 2.2px solid #bbbbbb; }
 
 .combobox .hidden {
   display: none; }

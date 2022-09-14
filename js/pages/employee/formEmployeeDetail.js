@@ -49,13 +49,31 @@ class FormEmployeeDetail {
 
         Object.assign(me, param); // gán thêm object param vào me
 
-        // Mở Form
+        // Mở FormFieldName='EmployeeCode'
         me.form.toggleClass("display-none");
+        // giới hạn giá trị date max
+        let dateNow = new Date();
+        $("[type='date']").attr(
+            "max",
+            CommonFn.formatDate(dateNow, "yyyy-MM-dd").split("/").join("-")
+        );
 
         // Lấy thông tin nhân viên thực hiện chức năng sửa từ object me
         const dataRowClick = me.dataRowClick;
         // Hiển thị thông tin nhân viên lên form khi thực hiện chức năng sửa
         if (dataRowClick) {
+            if (me.formMode === Enumeration.FormMode.Edit) {
+                //nếu là sửa thì ô mã nhân viên sẽ không thể thay đổi
+                $("[SetField='EmployeeCode']").attr("readonly", true); // chỉ đọc
+                $("[SetField='EmployeeCode']").addClass("opacity-05"); // lm mờ
+
+                //focus vào tên nhân viên
+                let inputEmployeeName = me.form.find(
+                    $("[SetField='FullName']")
+                );
+                inputEmployeeName.focus();
+            }
+
             let inputs = me.form.find(".input");
             for (const input of inputs) {
                 let fieldName = $(input).attr("SetField"),
@@ -67,8 +85,9 @@ class FormEmployeeDetail {
                     input.value = value;
 
                     if (type === "date") {
-                        let indexEnd = value.indexOf("T");
-                        value = value.slice(0, indexEnd);
+                        value = CommonFn.formatDate(value, "yyyy-MM-dd")
+                            .split("/")
+                            .join("-");
                         input.value = value;
                     }
                 }
@@ -84,24 +103,22 @@ class FormEmployeeDetail {
                 }
             }
         }
+        if (
+            me.formMode === Enumeration.FormMode.Add ||
+            me.formMode === Enumeration.FormMode.Copy
+        ) {
+            // lấy input của mã nhân viên để sau thực hiện khi bật form lên thì nó focus vào input mã nhân viên
+            inputEmployeeCode = me.form.find($("[SetField='EmployeeCode']"));
 
-        // lấy input của mã nhân viên để sau thực hiện khi bật form lên thì nó focus vào input mã nhân viên
-        inputEmployeeCode = me.form.find($("[SetField='EmployeeCode']"));
+            if (!me.form.hasClass("display-none")) {
+                // Nếu form mở lên thì focus vào ô mã nhân viên
+                inputEmployeeCode.focus();
 
-        if (!me.form.hasClass("display-none")) {
-            // Nếu form mở lên thì focus vào ô mã nhân viên
-            inputEmployeeCode.focus();
-
-            // Gán giá trị Mã nhân viên sinh tự động khi mở form nếu là thêm mới
-
-            // Nếu k có dòng nào đc chọn thì ms thực hiện gán mã nhân viên tự động
-            if (me.parent.employeeIDs.length === 0) {
+                // Gán giá trị Mã nhân viên sinh tự động khi mở form nếu là thêm mới/copy
                 me.generateEmployeeCode();
             }
         }
-
-        // Nếu ở mode thêm thì reset form
-        if (param && param.formMode == Enumeration.FormMode.Add) {
+        if (param && me.formMode === Enumeration.FormMode.Add) {
             me.resetForm();
         }
     }
@@ -110,6 +127,19 @@ class FormEmployeeDetail {
     closeForm() {
         let me = this;
         me.form.toggleClass("display-none");
+        $("[SetField='EmployeeCode']").removeAttr("readonly");
+        $("[SetField='EmployeeCode']").removeClass("opacity-05");
+    }
+
+    // Thao tác hủy
+    cancel() {
+        let me = this;
+        me.hiddenBoxNotification($("input"));
+        $("[SetField='EmployeeCode']").removeAttr("readonly");
+        $("[SetField='EmployeeCode']").removeClass("opacity-05");
+
+        me.resetForm();
+        me.closeForm();
     }
 
     // Thay đổi value của các thẻ input (nếu khi lưu mà chưa nhập, sau đó nhập bổ sung thì sẽ ẩn hộp thông báo)
@@ -142,7 +172,7 @@ class FormEmployeeDetail {
         }
 
         if (isValid) {
-            // isValid = me.validateDate(); // Validate các trường đặc biệt khác
+            isValid = me.validateDate(); // Validate các trường ngày tháng
         }
 
         return isValid;
@@ -223,7 +253,7 @@ class FormEmployeeDetail {
             isValid = true,
             isNumber;
 
-        me.form.find("[Validate='phoneNumber']").each(function () {
+        me.form.find("[ SetField='PhoneNumber']").each(function () {
             let value = $(this).val();
             isNumber = me.checkPhoneNumber(value);
             if (!isNumber) {
@@ -247,39 +277,23 @@ class FormEmployeeDetail {
         );
 
     //Kiểm tra ngày tháng
-    validateDate() {}
+    validateDate() {
+        let me = this,
+            isValid = true,
+            isDate;
 
-    // Hiển thị box thông báo của input
-    showBoxNotification(selector, typeNotification) {
-        let boxNotification = $('<div class="box-notification"></div>');
-
-        switch (typeNotification) {
-            case "box-notification":
-                boxNotification.text("Vui lòng không để trống!");
-                break;
-            case "box-notification-email":
-                boxNotification.text("Email không đúng định dạng!");
-                break;
-            case "box-notification-phone":
-                boxNotification.text("Số không đúng định dạng!");
-                break;
-            case "box-notification-citizen-identity-card":
-                boxNotification.text("Sai số căn cước công dân!");
-        }
-
-        $(selector).parent().append(boxNotification); // thêm phần tử thông báo vào các ô input chưa nhập dữ liệu
-        $(selector).parent().addClass("error"); // chưa nhập thì border của ô input sẽ chuyển màu đỏ
-        boxNotification.fadeOut(5000); //setup tg ẩn thông báo
-    }
-
-    // Ẩn box thông báo của input
-    hiddenBoxNotification(selector) {
-        $(selector)
-            .parent()
-            .children(".box-notification")
-            .toggleClass("display-none");
-
-        $(selector).parent().removeClass("error");
+        me.form.find("[type='date']").each(function () {
+            let value = new Date($(this).val()),
+                dateNow = new Date();
+            if (value > dateNow) {
+                isValid = false;
+                me.showBoxNotification($(this), "box-notification-date");
+                return isValid;
+            } else {
+                me.hiddenBoxNotification($(this));
+            }
+        });
+        return isValid;
     }
 
     // Get value from form
@@ -338,6 +352,7 @@ class FormEmployeeDetail {
     // Lưu thông tin đc điền từ form
     save() {
         let me = this,
+            url = me.form.attr("Url"),
             validateForm;
         validateForm = me.validateForm();
         // todo save to database...
@@ -346,11 +361,41 @@ class FormEmployeeDetail {
             // Lấy data từ form để tiến hành lưu
             let data = me.getValueForm();
 
-            me.saveData(data);
+            CommonFn.Ajax(url, Resource.Method.Get, {}, function (response) {
+                if (response) {
+                    let employeeCodes = response.map(
+                        (item) => item.EmployeeCode
+                    );
+                    console.log(data.EmployeeCode);
 
-            // Hiển thị thông báo lưu thành công
-            $(".toast-successful").removeClass("display-none");
-            $(".toast-successful").fadeOut(7000);
+                    //Kiểm tra mã trùng, nếu k trùng thì lưu đc còn k thì báo lỗi
+                    let isDuplicateCode = me.checkEmployeeCode(
+                        employeeCodes,
+                        data.EmployeeCode
+                    );
+
+                    //Sửa thì k cần check trùng mã
+                    if (me.dataRowClick) {
+                        me.saveData(data);
+                        // Hiển thị thông báo lưu thành công
+                        $(".toast-successful").removeClass("display-none");
+                        $(".toast-successful").fadeOut(7000);
+                    } else {
+                        //Thêm mới thì check trùng mã
+                        if (!isDuplicateCode) {
+                            me.saveData(data);
+                            // Hiển thị thông báo lưu thành công
+                            $(".toast-successful").removeClass("display-none");
+                            $(".toast-successful").fadeOut(7000);
+                        } else {
+                            alert("Mã nhân viên đã tồn tại");
+                            me.form.find('[SetField="EmployeeCode"]').focus();
+                        }
+                    }
+                } else {
+                    console.log("Có lỗi khi lấy dữ liệu từ server");
+                }
+            });
 
             //Hiển thị thông báo lưu thất bại
             // $(".toast-error").removeClass("display-none");
@@ -400,6 +445,7 @@ class FormEmployeeDetail {
 
             // cach 2
             $(this).val("");
+            me.hiddenBoxNotification($(this));
         });
     }
 
@@ -430,5 +476,55 @@ class FormEmployeeDetail {
                 console.log("Có lỗi");
             }
         });
+    }
+
+    // check trùng mã nhân viên
+    checkEmployeeCode(data, employeeCode) {
+        let me = this,
+            url = me.form.attr("Url"),
+            isDuplicateCode = false;
+
+        // kiểm tra mã nhân viên nhập vào có trùng với mã nhân viên nào trong hệ thống hay không
+        isDuplicateCode = data.includes(employeeCode);
+        console.log(data.includes(employeeCode));
+
+        return isDuplicateCode;
+    }
+
+    // Hiển thị box thông báo của input
+    showBoxNotification(selector, typeNotification) {
+        let boxNotification = $('<div class="box-notification"></div>');
+
+        switch (typeNotification) {
+            case "box-notification":
+                boxNotification.text("Vui lòng không để trống!");
+                break;
+            case "box-notification-email":
+                boxNotification.text("Email không đúng định dạng!");
+                break;
+            case "box-notification-phone":
+                boxNotification.text("Số không đúng định dạng!");
+                break;
+            case "box-notification-citizen-identity-card":
+                boxNotification.text("Sai số căn cước công dân!");
+            case "box-notification-date":
+                boxNotification.text(
+                    "Thời gian không được lớn hơn ngày hiện tại!"
+                );
+        }
+
+        $(selector).parent().append(boxNotification); // thêm phần tử thông báo vào các ô input chưa nhập dữ liệu
+        $(selector).parent().addClass("error"); // chưa nhập thì border của ô input sẽ chuyển màu đỏ
+        boxNotification.fadeOut(5000); //setup tg ẩn thông báo
+    }
+
+    // Ẩn box thông báo của input
+    hiddenBoxNotification(selector) {
+        $(selector)
+            .parent()
+            .children(".box-notification")
+            .toggleClass("display-none");
+
+        $(selector).parent().removeClass("error");
     }
 }

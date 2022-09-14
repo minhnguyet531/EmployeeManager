@@ -270,12 +270,19 @@
                             <div
                                 class="header-table grid grid__style--table text-bold"
                             >
-                                <h2
+                                <div class="checkbox__item border-gray">
+                                    <div class="display-none box__checked">
+                                        <i
+                                            class="fa-solid fa-check center-the-element checked"
+                                        ></i>
+                                    </div>
+                                </div>
+                                <!-- <h2
                                     FieldName=""
                                     DataType=""
                                     EnumName=" "
                                     class="grid__item grid__item--0"
-                                ></h2>
+                                ></h2> -->
                                 <h2
                                     FieldName="EmployeeCode"
                                     DataType=""
@@ -699,7 +706,6 @@
                                                         placeholder="Số điện thoại..."
                                                         class="input input__left"
                                                         Require="true"
-                                                        Validate="phoneNumber"
                                                         SetField="PhoneNumber"
                                                         DataType="Number"
                                                     />
@@ -949,17 +955,33 @@
                         <div class="center-the-element page__nav--numbers">
                             <div
                                 class="page__nav--number center-the-element page__nav--active"
+                                page="1"
                             >
                                 1
                             </div>
-                            <div class="page__nav--number center-the-element">
+                            <div
+                                class="page__nav--number center-the-element"
+                                page="2"
+                            >
                                 2
                             </div>
-                            <div class="page__nav--number center-the-element">
+                            <div
+                                class="page__nav--number center-the-element"
+                                page="3"
+                            >
                                 3
                             </div>
-                            <div class="page__nav--number center-the-element">
+                            <div
+                                class="page__nav--number center-the-element"
+                                page="4"
+                            >
                                 4
+                            </div>
+                            <div
+                                class="page__nav--number center-the-element"
+                                page="5"
+                            >
+                                5
                             </div>
                         </div>
                         <i

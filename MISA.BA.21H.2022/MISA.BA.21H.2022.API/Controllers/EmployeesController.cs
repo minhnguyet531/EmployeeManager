@@ -32,7 +32,7 @@ namespace MISA.BA._21H._2022.API.Controllers
                 string getDataEmployees = "SELECT * FROM tblemployee";
 
                 // Thực hiện câu lệnh Sql
-                var employees = mySqlConnection.Query(getDataEmployees);
+                var employees = mySqlConnection.Query(getDataEmployees);  
 
                 if (employees != null)
                 {

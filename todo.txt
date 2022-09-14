@@ -1,4 +1,5 @@
 //🍟 =>>>>>>>
+1. Check trùng mã nhân viên  => done 🎉🎉✨
 2. Tạo sự kiện cho combobox__sub và thanh menu
 3. Khi nhập xong các thẻ input thì có thẻ sử dụng các nút để di chuyển focus của chuột vd như cứ enter thì nó sẽ nhảy sang ô input sau đó (tabindex). Đồng thời khi mở form thì sẽ focus vào ngay ô input đầu tiên
 4. Sài đc phím enter
@@ -12,8 +13,8 @@
 1.2. Định dạng số tiền vd 1.000.000  => done 🎉🎉✨
 1.3. Mã nhân viên tự động có và tự tăng theo tiêu chí: "NV" + mã số nhân viên lớn nhất trong hệ thống + 1 => done 🎉🎉✨
 1.4. Format lại date  => done 🎉🎉✨
-1.5. ValidateDate? (ngày tháng k đc phép lớn hơn ngày hiện tại (định dạng ngày/ tháng/ năm))
-1.6. ValidateNumber? (số tiền á)
+1.5. ValidateDate? (ngày tháng k đc phép lớn hơn ngày hiện tại (định dạng ngày/ tháng/ năm))  => done 🎉🎉✨
+1.6. ValidateNumber? (số tiền á)  => done 🎉🎉✨
 
 2. Nhân bản: bản chất nó là thêm mới nhân viên nhưng dữ liệu sẽ ddc tự động điện theo bảng ghi mà mk muốn nó nhân bản lên (dĩ nhiên thg mã nv sẽ khác r và muốn thay đổi j thì vẫn thay đổi đc tốt) => cảm giác như đầu nó là thêm mới còn đuôi nó là sửa haha 🤣😂😁  => done 🎉🎉✨
 
@@ -27,7 +28,7 @@
 1. Mặc định focus vào ô nhập liệu mã nhân viên => done 🎉🎉✨
 2. Data đc đổ ra tương ứng ở các input => done 🎉🎉✨
 3. Data đc đổ ra các trường ngày tháng, combobox => done 🎉🎉✨
-
+4. K cho sửa Mã nhân viên  => done 🎉🎉✨
 
 
 
@@ -61,11 +62,10 @@
 
 
 //🍟 =>>>>>>> Form:
-1. Mã nhân viên k đc trùng vs mã nhân viên khác. Email đúng định dạng, 
 1. Xóa khoảng trắng giữa 2 đầu trc khi lưu database
 
 2. Khi lưu hiển thị các thông báo
-    - thành công => OK
+    - thành công  => done 🎉🎉✨
     - Thất bại
 
 
@@ -75,7 +75,7 @@
 6. Chức năng xóa (1 trường hoặc nhiều trường) => done 🎉🎉✨
 7. Chức năng loading dữ liệu 
 8. Cho phép form detail di chuyển
-9. Tự động sinh dấu phẩy ngăn cách cho các ô số tiền => done 🎉🎉✨
+9. Tự động sinh dấu phẩy ngăn cách cho các ô số tiền (mới thêm ở bên table còn bên form chưa fix)
 
 
 
@@ -93,4 +93,4 @@
 //🥵😱😱🥵😱😱😰 =>>>>>>> Bug hiện tại: 
 === Khi thực hiện chức năng sửa
 1. The specified value "2022-09-14T00:00:00" does not conform to the required format, "yyyy-MM-dd". => Cảnh báo khi muốn nhận ngày tháng trên form (chức năng sửa)
-2. Chức năng loading dữ liệu lỗi (mới loading đc nhưng các thao tác sau đó đều k thực hiện đc vd thêm sửa)
+2. Chức năng loading dữ liệu lỗi (mới loading đc nhưng các thao tác sau đó đều k thực hiện đc vd thêm sửa), nên đang fix là loading cả trang luôn -.-
